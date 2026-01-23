@@ -1,0 +1,70 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Abstract digital background with flowing lines",
+      "imageUrl": "https://images.unsplash.com/photo-1562575214-da9fcf59b907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzY0MzE0NDI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract technology"
+    },
+    {
+      "id": "service-tech",
+      "description": "Close-up of code on a screen",
+      "imageUrl": "https://images.unsplash.com/photo-1658274474930-bb27a64022c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb2RlJTIwc2NyZWVufGVufDB8fHx8MTc2NDI5NjQxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code screen"
+    },
+    {
+      "id": "service-media",
+      "description": "Professional video camera on a tripod",
+      "imageUrl": "https://images.unsplash.com/photo-1589872307379-0ffdf9829123?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx2aWRlbyUyMGNhbWVyYXxlbnwwfHx8fDE3NjQzMzkyODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "video camera"
+    },
+    {
+      "id": "why-us",
+      "description": "A team collaborating around a table with laptops",
+      "imageUrl": "https://images.unsplash.com/photo-1566140967404-b8b3932483f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZWFtJTIwY29sbGFib3JhdGlvbnxlbnwwfHx8fDE3NjQyOTk4MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team collaboration"
+    },
+    {
+      "id": "portfolio-tech-1",
+      "description": "Screenshot of a modern web application dashboard",
+      "imageUrl": "https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d2ViJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc2NDIyNTgwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "web dashboard"
+    },
+    {
+      "id": "portfolio-tech-2",
+      "description": "A person using a sleek mobile app",
+      "imageUrl": "https://images.unsplash.com/photo-1514575110897-1253ff7b2ccb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb2JpbGUlMjBhcHB8ZW58MHx8fHwxNzY0MzA3NTEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "portfolio-media-1",
+      "description": "A still from a corporate promotional video",
+      "imageUrl": "https://images.unsplash.com/photo-1654723011674-13e99382511d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29ycG9yYXRlJTIwdmlkZW98ZW58MHx8fHwxNzY0MzEzMTAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "corporate video"
+    },
+    {
+      "id": "portfolio-media-2",
+      "description": "High-quality product photography setup",
+      "imageUrl": "https://images.unsplash.com/photo-1551797802-f2dd1ec0033e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9kdWN0JTIwcGhvdG9ncmFwaHl8ZW58MHx8fHwxNzY0MzMzMjE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "product photography"
+    },
+    {
+      "id": "portfolio-branding-1",
+      "description": "A company's new logo on various merchandise",
+      "imageUrl": "https://images.unsplash.com/photo-1625675714908-fd175ea44c46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxicmFuZCUyMG1lcmNoYW5kaXNlfGVufDB8fHx8MTc2NDMzOTI4OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "brand merchandise"
+    },
+    {
+      "id": "portfolio-branding-2",
+      "description": "Pages from a beautifully designed brand guidelines book",
+      "imageUrl": "https://images.unsplash.com/photo-1758614364711-ca59728b4921?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxicmFuZCUyMGd1aWRlbGluZXN8ZW58MHx8fHwxNzY0MjI2MjgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "brand guidelines"
+    },
+    {
+      "id": "contact-header",
+      "description": "A minimalist office with a single phone on a desk",
+      "imageUrl": "https://images.unsplash.com/photo-1518655048521-f130df041f66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtaW5pbWFsaXN0JTIwb2ZmaWNlfGVufDB8fHx8MTc2NDI1MDM0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "minimalist office"
+    }
+  ]
+}
