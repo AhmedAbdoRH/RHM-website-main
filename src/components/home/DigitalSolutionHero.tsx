@@ -99,7 +99,7 @@ const DigitalSolutionHero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0d1712]">
+    <section className="relative min-h-screen lg:h-screen flex items-center justify-center overflow-hidden bg-[#0d1712]">
       
       {/* Neural Network Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
@@ -110,13 +110,13 @@ const DigitalSolutionHero = () => {
       <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,rgba(217,242,166,0.1),transparent_50%)] z-[1]" />
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-4 md:py-20 mt-8 lg:mt-0">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 md:gap-16 items-center">
           
           {/* Right: 3D Visual Element (Now first on mobile) */}
-          <div className="relative flex items-center justify-center order-1 lg:order-2">
+          <div className="relative flex items-center justify-center order-1 lg:order-2 scale-90 sm:scale-95 md:scale-100">
             {/* Hexagonal Grid */}
-            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px]">
+            <div className="relative w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px]">
               
               {/* Static Outer Frame */}
               <div className="absolute inset-0 opacity-40 animate-spin-very-slow">
@@ -151,13 +151,13 @@ const DigitalSolutionHero = () => {
               </div>
 
               {/* Center Core */}
-              <div className="absolute inset-16 flex items-center justify-center">
+              <div className="absolute inset-10 md:inset-16 flex items-center justify-center">
                 <div className="relative w-full h-full">
                   {/* Glowing Background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#60b093]/20 via-[#234338]/20 to-[#d9f2a6]/20 rounded-3xl blur-2xl animate-pulse" />
                   
                   {/* Glass Card */}
-                  <div className="relative w-full h-full rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 flex flex-col items-center justify-center overflow-hidden">
+                  <div className="relative w-full h-full rounded-2xl md:rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-4 md:p-8 flex flex-col items-center justify-center overflow-hidden">
                     
                     {/* Static Code Lines */}
                     <div className="absolute inset-0 opacity-10">
@@ -175,27 +175,27 @@ const DigitalSolutionHero = () => {
                     </div>
 
                       {/* Static Icon with Orbiting Dots */}
-                    <div className="relative mb-6">
-                      <div className="w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-[#60b093] to-[#234338] flex items-center justify-center shadow-[0_0_60px_rgba(96,176,147,0.4)]">
-                        <svg className="w-8 h-8 md:w-12 md:h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="relative mb-4 md:mb-6">
+                      <div className="w-14 h-14 md:w-24 md:h-24 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#60b093] to-[#234338] flex items-center justify-center shadow-[0_0_40px_rgba(96,176,147,0.3)] md:shadow-[0_0_60px_rgba(96,176,147,0.4)]">
+                        <svg className="w-7 h-7 md:w-12 md:h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                         </svg>
                       </div>
                       {/* Slow Orbiting Dots (Decorative) */}
                       <div className="absolute inset-0 animate-spin-slow">
-                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#d9f2a6] shadow-[0_0_15px_rgba(217,242,166,0.8)]" />
+                        <div className="absolute -top-1.5 md:-top-2 left-1/2 -translate-x-1/2 w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#d9f2a6] shadow-[0_0_15px_rgba(217,242,166,0.8)]" />
                       </div>
                       <div className="absolute inset-0 animate-spin-very-slow">
-                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#60b093] shadow-[0_0_12px_rgba(96,176,147,0.8)]" />
+                        <div className="absolute -bottom-1.5 md:-bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#60b093] shadow-[0_0_12px_rgba(96,176,147,0.8)]" />
                       </div>
                     </div>
 
                     {/* Tech Stack Icons */}
-                    <div className="flex gap-2 md:gap-3 mb-4">
+                    <div className="flex gap-1.5 md:gap-3 mb-3 md:mb-4">
                       {['🟪', '🔷', '🟢', '🔺'].map((emoji, i) => (
                         <div 
                           key={i} 
-                          className={`w-8 h-8 md:w-10 md:h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:scale-110 hover:bg-white/10 transition-all cursor-pointer ${i === 3 ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}
+                          className={`w-7 h-7 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:scale-110 hover:bg-white/10 transition-all cursor-pointer ${i === 3 ? 'text-lg md:text-2xl' : 'text-sm md:text-lg'}`}
                         >
                           {emoji}
                         </div>
@@ -204,8 +204,8 @@ const DigitalSolutionHero = () => {
 
                     {/* Status Text */}
                     <div className="text-center" dir="rtl">
-                      <div className="text-white font-bold text-base md:text-lg mb-1">Full Stack Solutions</div>
-                      <div className="text-gray-400 text-xs md:text-sm">أنظمة متطورة وحلول متكاملة</div>
+                      <div className="text-white font-bold text-sm md:text-lg mb-0.5 md:mb-1">Full Stack Solutions</div>
+                      <div className="text-gray-400 text-[10px] md:text-sm">أنظمة متطورة وحلول متكاملة</div>
                     </div>
 
                     {/* Border Overlay - Static */}
@@ -221,21 +221,21 @@ const DigitalSolutionHero = () => {
 
               {/* Floating Tech Badges - Arabic (Slow Float, No Rotation) */}
               {[
-                { icon: '🚀', label: 'سرعة في التنفيذ', pos: 'top-0 left-1/4' },
-                { icon: '🔒', label: 'أمان عالي', pos: 'top-1/4 right-0' },
-                { icon: '📱', label: 'تصميم متجاوب', pos: 'bottom-1/4 right-0' },
-                { icon: '⚡', label: 'أداء محسن', pos: 'bottom-0 left-1/4' },
-                { icon: '🎨', label: 'تصميم إبداعي', pos: 'top-1/4 left-0' },
-                { icon: '🎧', label: 'دعم فني متواصل', pos: 'bottom-1/4 left-0' },
+                { icon: '🚀', label: 'سرعة في التنفيذ', pos: 'top-[-5%] left-1/4' },
+                { icon: '🔒', label: 'أمان عالي', pos: 'top-1/4 right-[-5%]' },
+                { icon: '📱', label: 'تصميم متجاوب', pos: 'bottom-1/4 right-[-5%]' },
+                { icon: '⚡', label: 'أداء محسن', pos: 'bottom-[-5%] left-1/4' },
+                { icon: '🎨', label: 'تصميم إبداعي', pos: 'top-1/4 left-[-5%]' },
+                { icon: '🎧', label: 'دعم فني متواصل', pos: 'bottom-1/4 left-[-5%]' },
               ].map((badge, i) => (
                 <div
                   key={i}
-                  className={`absolute ${badge.pos} flex items-center gap-2 px-2 py-1.5 md:px-3 md:py-2 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 animate-float-slow`}
+                  className={`absolute ${badge.pos} flex items-center gap-1.5 md:gap-2 px-1.5 py-1 md:px-3 md:py-2 rounded-lg md:rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 animate-float-slow whitespace-nowrap z-20`}
                   style={{ animationDelay: `${i * 0.8}s` }}
                   dir="rtl"
                 >
-                  <span className="text-base md:text-lg">{badge.icon}</span>
-                  <span className="text-white text-[10px] md:text-xs font-medium">{badge.label}</span>
+                  <span className="text-sm md:text-lg">{badge.icon}</span>
+                  <span className="text-white text-[9px] md:text-xs font-medium">{badge.label}</span>
                 </div>
               ))}
 
@@ -266,18 +266,7 @@ const DigitalSolutionHero = () => {
           </div>
 
           {/* Left: Text Content (Now second on mobile) */}
-          <div className="space-y-8 text-right order-2 lg:order-1" dir="rtl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
-              <div className="flex -space-x-1 flex-row-reverse">
-                {[...Array(3)].map((_, i) => (
-                  <div key={i} className="w-6 h-6 rounded-full bg-gradient-to-br from-[#60b093] to-[#d9f2a6] border-2 border-[#0d1712]" />
-                ))}
-              </div>
-              <span className="text-gray-400 text-sm">+25 مشروع ناجح</span>
-              <div className="w-2 h-2 rounded-full bg-[#60b093] animate-pulse" />
-            </div>
-
+          <div className="space-y-6 text-right order-2 lg:order-1" dir="rtl">
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1]">
@@ -313,27 +302,33 @@ const DigitalSolutionHero = () => {
               نبني حلولاً رقمية متكاملة تجمع بين <span className="text-white font-medium">الإبداع</span> و<span className="text-white font-medium">التكنولوجيا</span> لنصنع تجارب استثنائية تُحدث فرقاً حقيقياً.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 pt-4 justify-start">
-              <button className="group px-8 py-5 rounded-2xl border-2 border-[#60b093]/30 hover:border-[#60b093] hover:bg-[#60b093]/5 transition-all duration-300 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#60b093]/10 flex items-center justify-center group-hover:scale-110 transition-all">
-                  <svg className="w-6 h-6 text-[#60b093]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
-                  </svg>
-                </div>
-                <span className="text-white font-bold">شاهد سابقة أعمالنا</span>
-              </button>
+            {/* Buttons CTA */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 mt-8 md:mt-12 justify-start">
+                <button className="group relative px-8 md:px-10 py-4 md:py-5 overflow-hidden font-bold rounded-full transition-all duration-300 flex items-center gap-3 shadow-[0_10px_20px_rgba(96,176,147,0.2)] hover:shadow-[0_15px_30px_rgba(96,176,147,0.3)] hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#60b093] to-[#d9f2a6] transition-all duration-500 group-hover:opacity-90" />
+                  <span className="relative z-10 text-[#0d1712]">ابدأ معنا الآن</span>
+                  <div className="relative z-10 w-8 h-8 rounded-full bg-[#0d1712]/10 flex items-center justify-center group-hover:-translate-x-1 transition-transform">
+                    <svg className="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </button>
 
-              <button className="group relative px-10 py-5 rounded-full overflow-hidden font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(96,176,147,0.3)] hover:shadow-[0_0_30px_rgba(96,176,147,0.5)]">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#60b093] to-[#d9f2a6] transition-all duration-500 group-hover:opacity-90" />
-                <span className="relative z-10 text-[#0d1712] flex items-center gap-3">
-                  ابدأ مشروعك معنا
-                  <svg className="w-6 h-6 transition-transform group-hover:-translate-x-1 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                <button 
+                  onClick={() => {
+                    document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="group px-8 md:px-10 py-4 md:py-5 rounded-full border-2 border-[#60b093]/30 hover:border-[#60b093] hover:bg-[#60b093]/5 transition-all duration-300 flex items-center gap-3"
+                >
+                  <div className="w-8 h-8 rounded-full bg-[#60b093]/10 flex items-center justify-center group-hover:scale-110 transition-all">
+                    <svg className="w-5 h-5 text-[#60b093]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  </div>
+                  <span className="text-white font-bold">شاهد سابقة أعمالنا</span>
+                </button>
+              </div>
           </div>
         </div>
       </div>

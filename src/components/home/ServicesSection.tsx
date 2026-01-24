@@ -46,14 +46,14 @@ const services = [
   {
     id: 1,
     icon: Globe,
-    title: 'مواقع ومتاجر إلكترونية',
-    subtitle: 'Web & E-commerce',
-    description: 'نصمم ونطور مواقع ومتاجر إلكترونية احترافية تحقق أهدافك التجارية',
+    title: 'تطوير الويب',
+    subtitle: 'Web Development',
+    description: 'نصمم ونطور مواقع ومتاجر إلكترونية احترافية باستخدام أحدث التقنيات العالمية لضمان تجربة مستخدم مثالية.',
     features: [
-      { text: 'تصميم متجاوب', icon: Monitor },
-      { text: 'سرعة فائقة', icon: Zap },
-      { text: 'SEO محسّن', icon: Search },
-      { text: 'لوحة تحكم سهلة', icon: Settings }
+      { text: 'المواقع الإلكترونية', icon: Globe },
+      { text: 'المتاجر الإلكترونية', icon: ShoppingCart },
+      { text: 'تطبيقات الويب', icon: Layout },
+      { text: 'المنصات الإلكترونية', icon: Layers }
     ],
     stats: { projects: '150+', satisfaction: '99%' },
     gradient: 'from-emerald-500 to-teal-600',
@@ -61,45 +61,30 @@ const services = [
   {
     id: 2,
     icon: Smartphone,
-    title: 'تطبيقات الأندرويد والويب',
-    subtitle: 'Android & Web Applications',
-    description: 'تطوير تطبيقات أندرويد متطورة ومنصات ويب تفاعلية تلبي تطلعات عملائك',
-    features: [
-      { text: 'أداء عالي', icon: Zap },
-      { text: 'واجهة سهلة', icon: Layout },
-      { text: 'تحديثات مستمرة', icon: RefreshCw },
-      { text: 'دعم فني', icon: Headphones }
-    ],
+    title: 'تطوير تطبيقات الأندرويد',
+    subtitle: 'Android App Development',
+    description: 'تطوير تطبيقات أندرويد متطورة وسريعة تلبي تطلعات عملائك وتوفر لهم تجربة سلسة وفريدة.',
+    features: [],
     stats: { projects: '80+', satisfaction: '98%' },
     gradient: 'from-teal-500 to-cyan-600',
   },
   {
     id: 3,
     icon: Layers,
-    title: 'برامج الكمبيوتر والأنظمة الداخلية',
-    subtitle: 'Desktop & ERP Systems',
-    description: 'نطور أنظمة داخلية متكاملة وبرامج كمبيوتر مخصصة لإدارة موارد الشركات وأتمتة العمليات الإدارية',
-    features: [
-      { text: 'أنظمة ERP', icon: Layout },
-      { text: 'إدارة المخازن', icon: Database },
-      { text: 'قواعد بيانات ضخمة', icon: Database },
-      { text: 'أمن معلومات', icon: Lock }
-    ],
+    title: 'تطوير الأنظمة الداخلية',
+    subtitle: 'Internal Systems Development',
+    description: 'نطور أنظمة داخلية متكاملة وبرامج ERP مخصصة لإدارة موارد الشركات وأتمتة العمليات الإدارية المعقدة.',
+    features: [],
     stats: { projects: '35+', satisfaction: '99%' },
     gradient: 'from-blue-500 to-indigo-600',
   },
   {
     id: 4,
     icon: Bot,
-    title: 'ذكاء اصطناعي وأتمتة',
-    subtitle: 'AI & Automation',
-    description: 'حلول ذكية لأتمتة أعمالك وزيادة الإنتاجية باستخدام أحدث التقنيات',
-    features: [
-      { text: 'شات بوت ذكي', icon: MessageSquare },
-      { text: 'تحليل بيانات', icon: BarChart },
-      { text: 'أتمتة المهام', icon: Cpu },
-      { text: 'تقارير ذكية', icon: PieChart }
-    ],
+    title: 'أتمته وAI',
+    subtitle: 'Automation & AI',
+    description: 'حلول ذكية لأتمتة أعمالك الروتينية وزيادة الإنتاجية باستخدام تقنيات الذكاء الاصطناعي الحديثة.',
+    features: [],
     stats: { projects: '45+', satisfaction: '100%' },
     gradient: 'from-cyan-500 to-blue-600',
   },
@@ -119,7 +104,7 @@ export function ServicesSection() {
   return (
     <section 
       id="services" 
-      className="pt-24 lg:pt-32 pb-12 lg:pb-16 relative overflow-hidden"
+      className="pt-12 md:pt-24 lg:pt-32 pb-12 lg:pb-16 relative overflow-hidden"
       style={{ backgroundColor: '#14221b' }}
     >
       {/* === خلفية متقدمة === */}
@@ -138,33 +123,44 @@ export function ServicesSection() {
         
         {/* === Section Header === */}
         <FadeIn>
-          <div className="text-center mb-20 max-w-4xl mx-auto">
+          <div className="text-center mb-12 md:mb-20 max-w-4xl mx-auto">
             {/* Top Badge Style Heading */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6 md:mb-8">
               <Sparkles className="w-4 h-4 text-[#60b093]" />
-              <span className="text-sm font-medium text-gray-400 uppercase tracking-wider">خدماتنا</span>
+              <span className="text-xs md:text-sm font-medium text-gray-400 uppercase tracking-wider">خدماتنا</span>
             </div>
 
             {/* Main Title with Refined Typography */}
-            <h2 className="text-4xl md:text-6xl font-black text-white leading-[1.2]">
+            <h2 className="text-3xl md:text-6xl font-black text-white leading-[1.3] md:leading-[1.2]">
               مجموعة متكاملة من 
-              <span className="block mt-4">
+              <span className="block mt-2 md:mt-4">
                 الحلول الرقمية 
-                <span className="relative mx-4 inline-block">
-                  <span className="relative z-10 px-8 py-3 rounded-3xl text-[#0d1712] bg-gradient-to-r from-[#60b093] via-[#d9f2a6] to-[#60b093] animate-wave shadow-[0_0_25px_rgba(96,176,147,0.4)] text-3xl md:text-5xl">
-                    المبتكرة
-                  </span>
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-[#60b093] blur-2xl opacity-20 animate-pulse -z-10" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#60b093] via-[#d9f2a6] to-[#60b093] mx-2">
+                  المبتكرة
                 </span>
               </span>
             </h2>
 
             {/* Added Description */}
-            <p className="text-xl md:text-2xl text-white mt-6 leading-relaxed relative inline-block">
+            <p className="text-lg md:text-2xl text-white mt-8 md:mt-6 leading-relaxed relative inline-block">
               لنقل عملك لمستوى احترافي
               <svg className="absolute -bottom-6 left-0 w-full overflow-visible" viewBox="0 0 200 12" fill="none">
-                <path d="M5 10 Q 40 2, 100 8 T 195 4" stroke="url(#underlineGradServices)" strokeWidth="1" strokeLinecap="round" strokeDasharray="200" strokeDashoffset="0" />
+                <path 
+                  d="M5 10 Q 40 2, 100 8 T 195 4" 
+                  stroke="url(#underlineGradServices)" 
+                  strokeWidth="2" 
+                  strokeLinecap="round"
+                >
+                  <animate 
+                    attributeName="d" 
+                    values="M5 10 Q 40 2, 100 8 T 195 4;
+                            M5 8 Q 45 12, 105 4 T 195 10;
+                            M5 12 Q 35 4, 95 10 T 195 2;
+                            M5 10 Q 40 2, 100 8 T 195 4" 
+                    dur="10s" 
+                    repeatCount="indefinite" 
+                  />
+                </path>
                 <defs>
                   <linearGradient id="underlineGradServices" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#60b093" />
@@ -203,51 +199,30 @@ export function ServicesSection() {
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-400 leading-relaxed mb-8">
+                  <p className={`text-gray-400 leading-relaxed ${service.features.length > 0 ? 'mb-8' : 'mb-0'}`}>
                     {service.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feature, idx) => (
-                      <div 
-                        key={idx} 
-                        className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/10 border border-white/10 text-sm text-white group-hover:bg-[#60b093]/10 group-hover:border-[#60b093]/40 transition-all duration-300"
-                      >
-                        <div className="w-5 h-5 rounded-md bg-[#60b093]/20 flex items-center justify-center">
-                          <feature.icon className="w-3.5 h-3.5 text-[#60b093]" />
+                  {service.features.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {service.features.map((feature, idx) => (
+                        <div 
+                          key={idx} 
+                          className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/10 border border-white/10 text-sm text-white group-hover:bg-[#60b093]/10 group-hover:border-[#60b093]/40 transition-all duration-300"
+                        >
+                          <div className="w-5 h-5 rounded-md bg-[#60b093]/20 flex items-center justify-center">
+                            <feature.icon className="w-3.5 h-3.5 text-[#60b093]" />
+                          </div>
+                          <span className="font-medium tracking-wide">{feature.text}</span>
                         </div>
-                        <span className="font-medium tracking-wide">{feature.text}</span>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </FadeIn>
           ))}
         </div>
-
-        {/* === Achievements Section === */}
-        <FadeIn>
-          <div className="mt-12 pt-12 border-t border-white/5">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {achievements.map((item, idx) => (
-                <div key={idx} className="text-center group">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-[#60b093]/10 transition-colors duration-300">
-                      <item.icon className="w-6 h-6 text-[#60b093]" />
-                    </div>
-                  </div>
-                  <div className="text-3xl font-black text-white mb-1 group-hover:text-[#60b093] transition-colors">
-                    {item.value}
-                  </div>
-                  <div className="text-gray-500 text-sm font-medium uppercase tracking-wider">
-                    {item.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </FadeIn>
 
 
       </div>
