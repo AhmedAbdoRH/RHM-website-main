@@ -22,21 +22,94 @@ const projects = [
   // Web & E-commerce
   {
     id: 1,
-    title: 'متجر إلكتروني متكامل',
+    title: 'منصة أنا كفو التعليمية',
     category: 'web',
     categoryName: 'مواقع ومتاجر إلكترونية',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1632&auto=format&fit=crop',
-    link: '#',
-    description: 'منصة بيع متكاملة مع نظام إدارة مخزون ودفع إلكتروني.'
+    image: '/website/1.webp',
+    link: 'https://Ana-Kafou.com',
+    description: 'منصة رقمية متكاملة لتقديم الخدمات والحلول المتنوعة.'
+  },
+  {
+    id: 10,
+    title: 'منصة أونلاين كاتلوج للتجارة الإلكترونية',
+    category: 'web',
+    categoryName: 'مواقع ومتاجر إلكترونية',
+    image: '/website/10.webp',
+    link: 'https://online-catalog.net/go',
+    displayUrl: 'online-catalog.net',
+    description: 'منصة متطورة لعرض المنتجات وإدارة الكتالوجات الإلكترونية.'
+  },
+  {
+    id: 8,
+    title: 'موقع وكالة فاير فلاي التسويقية',
+    category: 'web',
+    categoryName: 'مواقع ومتاجر إلكترونية',
+    image: '/website/8.webp',
+    link: 'https://Firefly-Agency.com',
+    description: 'منصة إبداعية لعرض حلول الهوية البصرية والتسويق.'
+  },
+  {
+    id: 3,
+    title: 'متجر السماح للمفروشات (فوربيد)',
+    category: 'web',
+    categoryName: 'مواقع ومتاجر إلكترونية',
+    image: '/website/3.webp',
+    link: 'https://Alsamah-Store.com',
+    description: 'متجر إلكتروني متطور لعرض وبيع المفروشات المنزلية.'
+  },
+  {
+    id: 5,
+    title: 'موقع شركة الماسة الصناعية',
+    category: 'web',
+    categoryName: 'مواقع ومتاجر إلكترونية',
+    image: '/website/5.webp',
+    link: 'https://Almasa.com.sa',
+    description: 'منصة لعرض المنتجات الصناعية والحلول التقنية للمصانع.'
+  },
+  {
+    id: 4,
+    title: 'موقع شركة سمارت هوم للإنشاءات',
+    category: 'web',
+    categoryName: 'مواقع ومتاجر إلكترونية',
+    image: '/website/4.webp',
+    link: 'https://SmartTeamEg.com',
+    description: 'موقع تعريفي لخدمات الإنشاءات والتصميم المعماري.'
+  },
+  {
+    id: 7,
+    title: 'موقع وكالة بوفا التسويقية',
+    category: 'web',
+    categoryName: 'مواقع ومتاجر إلكترونية',
+    image: '/website/7.webp',
+    link: 'https://PovaAgency.com',
+    description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
+  },
+  {
+    id: 6,
+    title: 'متجر سفير العطور',
+    category: 'web',
+    categoryName: 'مواقع ومتاجر إلكترونية',
+    image: '/website/6.webp',
+    link: 'https://perfume-ambassador.com',
+    description: 'تجربة تسوق فاخرة للعطور والمنتجات العطرية.'
+  },
+  {
+    id: 9,
+    title: 'متجر ديزاين فور يو للتصميمات',
+    category: 'web',
+    categoryName: 'مواقع ومتاجر إلكترونية',
+    image: '/website/9.webp',
+    link: 'https://designs-4u.com',
+    description: 'متجر إلكتروني لبيع خدمات ومنتجات التصميم الجرافيكي.'
   },
   {
     id: 2,
-    title: 'موقع عقاري متطور',
+    title: 'موقع شركة بيست باص للتنقلات',
     category: 'web',
     categoryName: 'مواقع ومتاجر إلكترونية',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1632&auto=format&fit=crop',
-    link: '#',
-    description: 'نظام عرض العقارات مع خرائط تفاعلية ونظام حجز معاينات.'
+    image: '/website/2.webp',
+    link: 'https://BestBusTransport.com',
+    description: 'نظام حجز وإدارة رحلات النقل الجماعي والخاص.'
   },
   // Apps
   {
@@ -216,12 +289,13 @@ export function PortfolioSection() {
                 style={{ border: `1px solid ${colors.primary}10` }}
               >
                 {/* Project Image */}
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[1720/1080] overflow-hidden group/img">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+                  
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
                     <div 
@@ -239,17 +313,74 @@ export function PortfolioSection() {
                   </div>
                 </div>
 
+                {/* Website URL Bar - Distinguished Design */}
+                <div className="relative group/url">
+                  {/* Premium Background with subtle pattern or gradient */}
+                  <div className="absolute inset-0 bg-[#f8fafc] transition-colors duration-500 group-hover:bg-[#60b093]/5" />
+                  
+                  {/* Subtle Top Inner Shadow for depth */}
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent opacity-50" />
+                  
+                  <div className="relative py-2.5 px-6 flex items-center border-y border-gray-100 transition-all duration-500 group-hover:border-[#60b093]/20">
+                    <div className="flex items-center gap-4 w-full">
+                      {/* Animated Globe Icon Container */}
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-[#60b093] blur-md opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                        <div className="relative p-1.5 rounded-lg bg-white shadow-sm border border-gray-100 transition-all duration-500 group-hover:border-[#60b093]/30 group-hover:scale-110 group-hover:shadow-md">
+                          <Globe className="w-3.5 h-3.5 text-[#60b093]" />
+                        </div>
+                      </div>
+                      
+                      <div className="flex flex-col overflow-hidden">
+                        <span className="text-[#234338] text-base font-black tracking-wide truncate group-hover:text-[#60b093] transition-colors duration-300">
+                          {project.displayUrl || project.link.replace('https://', '').replace('www.', '').replace('/go', '')}
+                        </span>
+                      </div>
+
+                      {/* Right side decoration - Small Arrow */}
+                      <div className="mr-auto opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">
+                        <ArrowRight className="w-4 h-4 text-[#60b093]" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Decorative accent line - Bottom */}
+                  <div className="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-[#60b093] to-[#d9f2a6] transition-all duration-700 group-hover:w-full shadow-[0_0_10px_rgba(96,176,147,0.5)]" />
+                </div>
+
                 {/* Project Info */}
-                <div className="p-8 flex-grow flex flex-col">
-                  <span className="text-sm font-bold mb-2 block" style={{ color: colors.primary }}>
-                    {project.categoryName}
-                  </span>
-                  <h3 className="text-2xl font-bold mb-3" style={{ color: colors.dark }}>
+                <div className="p-5 flex-grow flex flex-col">
+                  <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors" style={{ color: colors.dark }}>
                     {project.title}
                   </h3>
-                  <p className="text-gray-500 line-clamp-2 mb-4">
-                    {project.description}
-                  </p>
+                  
+                  <div className="mt-auto pt-4">
+                    <a 
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn relative inline-flex items-center justify-center w-full px-8 py-4 font-bold text-white transition-all duration-500 rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(96,176,147,0.25)] hover:shadow-[0_15px_40px_rgba(96,176,147,0.4)] hover:-translate-y-1"
+                    >
+                      {/* Fixed Gradient Background */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#60b093] to-[#234338]" />
+                      
+                      {/* Glass effect shine (still on hover for extra life) */}
+                      <div className="absolute inset-0 w-full h-full transition-transform duration-1000 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover/btn:translate-x-full" />
+
+                      <div className="relative z-10 flex items-center gap-3">
+                        <span className="tracking-wide text-lg">عرض الموقع</span>
+                        <div className="relative">
+                          <ExternalLink className="w-5 h-5 transition-all duration-500 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                          <div className="absolute inset-0 blur-sm opacity-50">
+                            <ExternalLink className="w-5 h-5" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Fixed Bottom border glow */}
+                      <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#d9f2a6] shadow-[0_-4px_10px_rgba(217,242,166,0.3)]" />
+                    </a>
+                  </div>
                 </div>
 
                 {/* Bottom Gradient Line */}

@@ -111,10 +111,162 @@ const DigitalSolutionHero = () => {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-16 items-center">
           
-          {/* Left: Text Content */}
-          <div className="space-y-8 text-right" dir="rtl">
+          {/* Right: 3D Visual Element (Now first on mobile) */}
+          <div className="relative flex items-center justify-center order-1 lg:order-2">
+            {/* Hexagonal Grid */}
+            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px]">
+              
+              {/* Static Outer Frame */}
+              <div className="absolute inset-0 opacity-40 animate-spin-very-slow">
+                <svg viewBox="0 0 200 200" className="w-full h-full">
+                  <defs>
+                    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#60b093" stopOpacity="0.8" />
+                      <stop offset="50%" stopColor="#234338" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#d9f2a6" stopOpacity="0.8" />
+                    </linearGradient>
+                  </defs>
+                  <polygon 
+                    points="100,5 180,50 180,150 100,195 20,150 20,50" 
+                    fill="none" 
+                    stroke="url(#hexGrad)" 
+                    strokeWidth="1"
+                    strokeDasharray="10 5"
+                  />
+                </svg>
+              </div>
+
+              {/* Static Inner Hexagon */}
+              <div className="absolute inset-8 opacity-20 animate-spin-slow">
+                <svg viewBox="0 0 200 200" className="w-full h-full">
+                  <polygon 
+                    points="100,15 170,55 170,145 100,185 30,145 30,55" 
+                    fill="none" 
+                    stroke="rgba(96,176,147,0.3)" 
+                    strokeWidth="0.5"
+                  />
+                </svg>
+              </div>
+
+              {/* Center Core */}
+              <div className="absolute inset-16 flex items-center justify-center">
+                <div className="relative w-full h-full">
+                  {/* Glowing Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#60b093]/20 via-[#234338]/20 to-[#d9f2a6]/20 rounded-3xl blur-2xl animate-pulse" />
+                  
+                  {/* Glass Card */}
+                  <div className="relative w-full h-full rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 flex flex-col items-center justify-center overflow-hidden">
+                    
+                    {/* Static Code Lines */}
+                    <div className="absolute inset-0 opacity-10">
+                      {[...Array(8)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="absolute h-px bg-gradient-to-r from-transparent via-[#60b093] to-transparent"
+                          style={{
+                            top: `${12 + i * 12}%`,
+                            left: '10%',
+                            right: '10%',
+                          }}
+                        />
+                      ))}
+                    </div>
+
+                      {/* Static Icon with Orbiting Dots */}
+                    <div className="relative mb-6">
+                      <div className="w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-[#60b093] to-[#234338] flex items-center justify-center shadow-[0_0_60px_rgba(96,176,147,0.4)]">
+                        <svg className="w-8 h-8 md:w-12 md:h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                      </div>
+                      {/* Slow Orbiting Dots (Decorative) */}
+                      <div className="absolute inset-0 animate-spin-slow">
+                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#d9f2a6] shadow-[0_0_15px_rgba(217,242,166,0.8)]" />
+                      </div>
+                      <div className="absolute inset-0 animate-spin-very-slow">
+                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#60b093] shadow-[0_0_12px_rgba(96,176,147,0.8)]" />
+                      </div>
+                    </div>
+
+                    {/* Tech Stack Icons */}
+                    <div className="flex gap-2 md:gap-3 mb-4">
+                      {['🟪', '🔷', '🟢', '🔺'].map((emoji, i) => (
+                        <div 
+                          key={i} 
+                          className={`w-8 h-8 md:w-10 md:h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:scale-110 hover:bg-white/10 transition-all cursor-pointer ${i === 3 ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}
+                        >
+                          {emoji}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Status Text */}
+                    <div className="text-center" dir="rtl">
+                      <div className="text-white font-bold text-base md:text-lg mb-1">Full Stack Solutions</div>
+                      <div className="text-gray-400 text-xs md:text-sm">أنظمة متطورة وحلول متكاملة</div>
+                    </div>
+
+                    {/* Border Overlay - Static */}
+                    <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
+                      <div className="absolute inset-0 opacity-50">
+                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#60b093] to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#60b093] to-transparent" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Tech Badges - Arabic (Slow Float, No Rotation) */}
+              {[
+                { icon: '🚀', label: 'سرعة في التنفيذ', pos: 'top-0 left-1/4' },
+                { icon: '🔒', label: 'أمان عالي', pos: 'top-1/4 right-0' },
+                { icon: '📱', label: 'تصميم متجاوب', pos: 'bottom-1/4 right-0' },
+                { icon: '⚡', label: 'أداء محسن', pos: 'bottom-0 left-1/4' },
+                { icon: '🎨', label: 'تصميم إبداعي', pos: 'top-1/4 left-0' },
+                { icon: '🎧', label: 'دعم فني متواصل', pos: 'bottom-1/4 left-0' },
+              ].map((badge, i) => (
+                <div
+                  key={i}
+                  className={`absolute ${badge.pos} flex items-center gap-2 px-2 py-1.5 md:px-3 md:py-2 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 animate-float-slow`}
+                  style={{ animationDelay: `${i * 0.8}s` }}
+                  dir="rtl"
+                >
+                  <span className="text-base md:text-lg">{badge.icon}</span>
+                  <span className="text-white text-[10px] md:text-xs font-medium">{badge.label}</span>
+                </div>
+              ))}
+
+              {/* Connection Lines */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                <defs>
+                  <linearGradient id="connGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#60b093" stopOpacity="0" />
+                    <stop offset="50%" stopColor="#60b093" stopOpacity="0.5" />
+                    <stop offset="100%" stopColor="#60b093" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                {[30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360].map((angle, i) => (
+                  <line
+                    key={i}
+                    x1="50"
+                    y1="50"
+                    x2={50 + 45 * Math.cos((angle * Math.PI) / 180)}
+                    y2={50 + 45 * Math.sin((angle * Math.PI) / 180)}
+                    stroke="url(#connGrad)"
+                    strokeWidth="0.2"
+                    className="animate-pulse"
+                    style={{ animationDelay: `${i * 0.15}s` }}
+                  />
+                ))}
+              </svg>
+            </div>
+          </div>
+
+          {/* Left: Text Content (Now second on mobile) */}
+          <div className="space-y-8 text-right order-2 lg:order-1" dir="rtl">
             {/* Badge */}
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
               <div className="flex -space-x-1 flex-row-reverse">
@@ -181,158 +333,6 @@ const DigitalSolutionHero = () => {
                   </svg>
                 </span>
               </button>
-            </div>
-          </div>
-
-          {/* Right: 3D Visual Element */}
-          <div className="relative flex items-center justify-center">
-            {/* Hexagonal Grid */}
-            <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]">
-              
-              {/* Static Outer Frame */}
-              <div className="absolute inset-0 opacity-40 animate-spin-very-slow">
-                <svg viewBox="0 0 200 200" className="w-full h-full">
-                  <defs>
-                    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#60b093" stopOpacity="0.8" />
-                      <stop offset="50%" stopColor="#234338" stopOpacity="0.4" />
-                      <stop offset="100%" stopColor="#d9f2a6" stopOpacity="0.8" />
-                    </linearGradient>
-                  </defs>
-                  <polygon 
-                    points="100,5 180,50 180,150 100,195 20,150 20,50" 
-                    fill="none" 
-                    stroke="url(#hexGrad)" 
-                    strokeWidth="1"
-                    strokeDasharray="10 5"
-                  />
-                </svg>
-              </div>
-
-              {/* Static Inner Hexagon */}
-              <div className="absolute inset-8 opacity-20 animate-spin-slow">
-                <svg viewBox="0 0 200 200" className="w-full h-full">
-                  <polygon 
-                    points="100,15 170,55 170,145 100,185 30,145 30,55" 
-                    fill="none" 
-                    stroke="rgba(96,176,147,0.3)" 
-                    strokeWidth="0.5"
-                  />
-                </svg>
-              </div>
-
-              {/* Center Core */}
-              <div className="absolute inset-16 flex items-center justify-center">
-                <div className="relative w-full h-full">
-                  {/* Glowing Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#60b093]/20 via-[#234338]/20 to-[#d9f2a6]/20 rounded-3xl blur-2xl animate-pulse" />
-                  
-                  {/* Glass Card */}
-                  <div className="relative w-full h-full rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 flex flex-col items-center justify-center overflow-hidden">
-                    
-                    {/* Static Code Lines */}
-                    <div className="absolute inset-0 opacity-10">
-                      {[...Array(8)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="absolute h-px bg-gradient-to-r from-transparent via-[#60b093] to-transparent"
-                          style={{
-                            top: `${12 + i * 12}%`,
-                            left: '10%',
-                            right: '10%',
-                          }}
-                        />
-                      ))}
-                    </div>
-
-                      {/* Static Icon with Orbiting Dots */}
-                    <div className="relative mb-6">
-                      <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#60b093] to-[#234338] flex items-center justify-center shadow-[0_0_60px_rgba(96,176,147,0.4)]">
-                        <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
-                      </div>
-                      {/* Slow Orbiting Dots (Decorative) */}
-                      <div className="absolute inset-0 animate-spin-slow">
-                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#d9f2a6] shadow-[0_0_15px_rgba(217,242,166,0.8)]" />
-                      </div>
-                      <div className="absolute inset-0 animate-spin-very-slow">
-                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#60b093] shadow-[0_0_12px_rgba(96,176,147,0.8)]" />
-                      </div>
-                    </div>
-
-                    {/* Tech Stack Icons */}
-                    <div className="flex gap-3 mb-4">
-                      {['🟪', '🔷', '🟢', '🔺'].map((emoji, i) => (
-                        <div 
-                          key={i} 
-                          className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:scale-110 hover:bg-white/10 transition-all cursor-pointer ${i === 3 ? 'text-2xl' : 'text-lg'}`}
-                        >
-                          {emoji}
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Status Text */}
-                    <div className="text-center" dir="rtl">
-                      <div className="text-white font-bold text-lg mb-1">Full Stack Solutions</div>
-                      <div className="text-gray-400 text-sm">أنظمة متطورة وحلول متكاملة</div>
-                    </div>
-
-                    {/* Border Overlay - Static */}
-                    <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
-                      <div className="absolute inset-0 opacity-50">
-                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#60b093] to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#60b093] to-transparent" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Tech Badges - Arabic (Slow Float, No Rotation) */}
-              {[
-                { icon: '🚀', label: 'سرعة في التنفيذ', pos: 'top-0 left-1/4' },
-                { icon: '🔒', label: 'أمان عالي', pos: 'top-1/4 right-0' },
-                { icon: '📱', label: 'تصميم متجاوب', pos: 'bottom-1/4 right-0' },
-                { icon: '⚡', label: 'أداء محسن', pos: 'bottom-0 left-1/4' },
-                { icon: '🎨', label: 'تصميم إبداعي', pos: 'top-1/4 left-0' },
-                { icon: '🎧', label: 'دعم فني متواصل', pos: 'bottom-1/4 left-0' },
-              ].map((badge, i) => (
-                <div
-                  key={i}
-                  className={`absolute ${badge.pos} flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 animate-float-slow`}
-                  style={{ animationDelay: `${i * 0.8}s` }}
-                  dir="rtl"
-                >
-                  <span className="text-lg">{badge.icon}</span>
-                  <span className="text-white text-xs font-medium">{badge.label}</span>
-                </div>
-              ))}
-
-              {/* Connection Lines */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-                <defs>
-                  <linearGradient id="connGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#60b093" stopOpacity="0" />
-                    <stop offset="50%" stopColor="#60b093" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="#60b093" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                {[30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360].map((angle, i) => (
-                  <line
-                    key={i}
-                    x1="50"
-                    y1="50"
-                    x2={50 + 45 * Math.cos((angle * Math.PI) / 180)}
-                    y2={50 + 45 * Math.sin((angle * Math.PI) / 180)}
-                    stroke="url(#connGrad)"
-                    strokeWidth="0.2"
-                    className="animate-pulse"
-                    style={{ animationDelay: `${i * 0.15}s` }}
-                  />
-                ))}
-              </svg>
             </div>
           </div>
         </div>
