@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { 
-  BrainCircuit, 
+import {
+  BrainCircuit,
   Sparkles,
   Globe,
   Smartphone,
@@ -90,37 +90,31 @@ const services = [
   },
 ];
 
-const achievements = [
-  { icon: Rocket, value: '+25', label: 'مشروع منجز' },
-  { icon: Users, value: '+100', label: 'عميل' },
-  { icon: Clock, value: '5+', label: 'سنوات خبرة' },
-  { icon: Shield, value: '100%', label: 'التزام بالجودة' },
-];
 
 export function ServicesSection() {
   const [activeService, setActiveService] = useState<number | null>(null);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section 
-      id="services" 
+    <section
+      id="services"
       className="pt-12 md:pt-24 lg:pt-32 pb-12 lg:pb-16 relative overflow-hidden"
       style={{ backgroundColor: '#14221b' }}
     >
       {/* === خلفية متقدمة === */}
-      
+
       {/* Gradient Orbs */}
-      <div 
+      <div
         className="absolute top-20 right-10 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20"
         style={{ background: `linear-gradient(135deg, ${colors.secondary}, ${colors.primary}40)` }}
       />
-      <div 
+      <div
         className="absolute bottom-20 left-10 w-[400px] h-[400px] rounded-full blur-[100px] opacity-10"
         style={{ background: colors.secondary }}
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        
+
         {/* === Section Header === */}
         <FadeIn>
           <div className="text-center mb-12 md:mb-20 max-w-4xl mx-auto">
@@ -132,9 +126,9 @@ export function ServicesSection() {
 
             {/* Main Title with Refined Typography */}
             <h2 className="text-3xl md:text-6xl font-black text-white leading-[1.3] md:leading-[1.2]">
-              مجموعة متكاملة من 
+              مجموعة متكاملة من
               <span className="block mt-2 md:mt-4">
-                الحلول الرقمية 
+                الحلول الرقمية
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#60b093] via-[#d9f2a6] to-[#60b093] mx-2">
                   المبتكرة
                 </span>
@@ -145,20 +139,20 @@ export function ServicesSection() {
             <p className="text-lg md:text-2xl text-white mt-8 md:mt-6 leading-relaxed relative inline-block">
               لنقل عملك لمستوى احترافي
               <svg className="absolute -bottom-6 left-0 w-full overflow-visible" viewBox="0 0 200 12" fill="none">
-                <path 
-                  d="M5 10 Q 40 2, 100 8 T 195 4" 
-                  stroke="url(#underlineGradServices)" 
-                  strokeWidth="2" 
+                <path
+                  d="M5 10 Q 40 2, 100 8 T 195 4"
+                  stroke="url(#underlineGradServices)"
+                  strokeWidth="2"
                   strokeLinecap="round"
                 >
-                  <animate 
-                    attributeName="d" 
+                  <animate
+                    attributeName="d"
                     values="M5 10 Q 40 2, 100 8 T 195 4;
                             M5 8 Q 45 12, 105 4 T 195 10;
                             M5 12 Q 35 4, 95 10 T 195 2;
-                            M5 10 Q 40 2, 100 8 T 195 4" 
-                    dur="10s" 
-                    repeatCount="indefinite" 
+                            M5 10 Q 40 2, 100 8 T 195 4"
+                    dur="10s"
+                    repeatCount="indefinite"
                   />
                 </path>
                 <defs>
@@ -177,14 +171,14 @@ export function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto mb-20">
           {services.map((service, index) => (
             <FadeIn key={service.id} delay={index * 0.1}>
-              <div 
+              <div
                 className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-[#60b093]/50 transition-all duration-500 overflow-hidden h-full"
                 onMouseEnter={() => setHoveredCard(service.id)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 {/* Background Gradient on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#60b093]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 <div className="relative z-10">
                   <div className="flex items-start justify-between mb-6">
                     <div className={`p-4 rounded-2xl bg-white/5 group-hover:scale-110 transition-transform duration-500`}>
@@ -198,7 +192,7 @@ export function ServicesSection() {
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#60b093] transition-colors">
                     {service.title}
                   </h3>
-                  
+
                   <p className={`text-gray-400 leading-relaxed ${service.features.length > 0 ? 'mb-8' : 'mb-0'}`}>
                     {service.description}
                   </p>
@@ -206,8 +200,8 @@ export function ServicesSection() {
                   {service.features.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {service.features.map((feature, idx) => (
-                        <div 
-                          key={idx} 
+                        <div
+                          key={idx}
                           className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/10 border border-white/10 text-sm text-white group-hover:bg-[#60b093]/10 group-hover:border-[#60b093]/40 transition-all duration-300"
                         >
                           <div className="w-5 h-5 rounded-md bg-[#60b093]/20 flex items-center justify-center">

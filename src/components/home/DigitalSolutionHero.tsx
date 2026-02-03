@@ -5,8 +5,15 @@ import React, { useEffect, useRef } from 'react';
 const DigitalSolutionHero = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  const [mounted, setMounted] = React.useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Neural Network Animation
   useEffect(() => {
+    if (!mounted) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -239,7 +246,7 @@ const DigitalSolutionHero = () => {
                 </div>
               ))}
 
-              {/* Connection Lines */}
+                {/* Connection Lines */}
               <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
                 <defs>
                   <linearGradient id="connGrad" x1="0%" y1="0%" x2="100%" y2="0%">
