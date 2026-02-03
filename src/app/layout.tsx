@@ -6,8 +6,31 @@ import { Toaster } from '@/components/ui/toaster';
 import { Chatbot } from '@/components/chatbot/Chatbot';
 
 export const metadata: Metadata = {
-  title: 'RHM للتميز الرقمي',
-  description: 'صياغة التميز الرقمي في تطوير الويب وإنتاج الوسائط والعلامات التجارية.',
+  title: 'RHM للتميز الرقمي | رحلة هدف للحلول الرقمية',
+  description: 'نُحول الأفكار إلى واقع رقمي مبهر. متخصصون في البرمجة، التسويق، والإنتاج المرئي لنصنع لك تجربة استثنائية تُحدث فرقاً حقيقياً في عالم الأعمال.',
+  icons: {
+    icon: '/RHM.jpg',
+    apple: '/RHM.jpg',
+  },
+  openGraph: {
+    title: 'RHM للتميز الرقمي',
+    description: 'رحلتك نحو القمة تبدأ هنا. حلول رقمية متكاملة تشمل البرمجة والتسويق والإنتاج المرئي بأحدث التقنيات العالمية.',
+    images: [
+      {
+        url: '/RHM.jpg',
+        width: 1200,
+        height: 1200,
+        alt: 'RHM Digital Solutions',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'RHM للتميز الرقمي',
+    description: 'نبتكر، نصمم، وننفذ. شريكك الاستراتيجي للنجاح في الفضاء الرقمي.',
+    images: ['/RHM.jpg'],
+  },
 };
 
 export default function RootLayout({
