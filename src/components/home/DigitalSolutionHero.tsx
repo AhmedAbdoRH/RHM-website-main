@@ -231,7 +231,7 @@ const DigitalSolutionHero = () => {
                 { icon: '🚀', label: 'سرعة في التنفيذ', pos: 'top-[-5%] left-1/4' },
                 { icon: '🔒', label: 'أمان عالي', pos: 'top-1/4 right-[-5%]' },
                 { icon: '📱', label: 'تصميم متجاوب', pos: 'bottom-1/4 right-[-5%]' },
-                { icon: '⚡', label: 'أداء محسن', pos: 'bottom-[-5%] left-1/4' },
+                { icon: '⚡', label: 'أداء عالي', pos: 'bottom-[-5%] left-1/4' },
                 { icon: '🎨', label: 'تصميم إبداعي', pos: 'top-1/4 left-[-5%]' },
                 { icon: '🎧', label: 'دعم فني متواصل', pos: 'bottom-1/4 left-[-5%]' },
               ].map((badge, i) => (

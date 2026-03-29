@@ -111,6 +111,42 @@ const projects = [
     link: 'https://BestBusTransport.com',
     description: 'نظام حجز وإدارة رحلات النقل الجماعي والخاص.'
   },
+  {
+    id: 11,
+    title: 'الريان للحلول التكنولوجية',
+    category: 'web',
+    categoryName: 'تطوير الويب',
+    image: '/website/11.png',
+    link: 'https://elrayantechnology.com',
+    description: 'شركة متخصصة في تقديم الحلول التكنولوجية المتكاملة.'
+  },
+  {
+    id: 12,
+    title: 'الرؤى للتجارة والتوريدات',
+    category: 'web',
+    categoryName: 'تطوير الويب',
+    image: '/website/12.png',
+    link: 'https://elroaa-store.com',
+    description: 'منصة تجارية متطورة للتوريدات والتجارة الإلكترونية.'
+  },
+  {
+    id: 13,
+    title: 'شركة الوسام ليموزين',
+    category: 'web',
+    categoryName: 'تطوير الويب',
+    image: '/website/13.webp',
+    link: 'https://el-wessam.netlify.app',
+    description: 'خدمات نقل فاخرة وليموزين عالية الجودة.'
+  },
+  {
+    id: 14,
+    title: 'جاردينيا للاستشارات البيئية',
+    category: 'web',
+    categoryName: 'تطوير الويب',
+    image: '/website/14.jpeg',
+    link: 'https://fly-gardenia.netlify.app',
+    description: 'استشارات بيئية متخصصة وحلول مستدامة.'
+  },
   // Apps
   {
     id: 1,
@@ -289,7 +325,7 @@ export function PortfolioSection() {
           {filteredProjects.map((project, index) => (
             <FadeIn key={`${activeTab}-${project.id}`} delay={index * 0.1}>
               <div
-                className="group relative rounded-xl md:rounded-3xl overflow-hidden bg-white shadow-lg md:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full flex flex-col"
+                className="group relative rounded-xl md:rounded-3xl overflow-hidden bg-white shadow-lg md:shadow-xl transition-all duration-500 hover:-translate-y-2"
                 onMouseEnter={() => setHoveredIndex(project.id)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 style={{ border: `1px solid ${colors.primary}10` }}
@@ -348,26 +384,24 @@ export function PortfolioSection() {
                 </div>
 
                 {/* Project Info - Optimized for mobile grid */}
-                <div className="p-3 md:p-5 flex-grow flex flex-col">
-                  <h3 className="text-[10px] md:text-xl font-bold mb-3 md:mb-4 group-hover:text-primary transition-colors line-clamp-1" style={{ color: colors.dark }}>
+                <div className="p-3 md:p-5 flex flex-col">
+                  <h3 className="text-[10px] md:text-xl font-bold mb-2 md:mb-4 group-hover:text-primary transition-colors line-clamp-1" style={{ color: colors.dark }}>
                     {project.title}
                   </h3>
 
-                  <div className="mt-auto">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/btn relative inline-flex items-center justify-center w-full px-3 md:px-8 py-2 md:py-4 font-bold text-white transition-all duration-500 rounded-lg md:rounded-2xl overflow-hidden shadow-md md:shadow-[0_10px_30px_rgba(96,176,147,0.25)] hover:-translate-y-1"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#60b093] to-[#234338]" />
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn relative inline-flex items-center justify-center w-full px-3 md:px-8 py-2 md:py-4 font-bold text-white transition-all duration-500 rounded-lg md:rounded-2xl overflow-hidden shadow-md md:shadow-[0_10px_30px_rgba(96,176,147,0.25)] hover:-translate-y-1"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#60b093] to-[#234338]" />
 
-                      <div className="relative z-10 flex items-center gap-1.5 md:gap-3">
-                        <span className="tracking-wide text-[10px] md:text-lg">{activeTab === 'apps' ? 'عرض التطبيق' : 'عرض الموقع'}</span>
-                        <ExternalLink className="w-3 h-3 md:w-5 md:h-5" />
-                      </div>
-                    </a>
-                  </div>
+                    <div className="relative z-10 flex items-center gap-1.5 md:gap-3">
+                      <span className="tracking-wide text-[10px] md:text-lg">{activeTab === 'apps' ? 'عرض التطبيق' : 'عرض الموقع'}</span>
+                      <ExternalLink className="w-3 h-3 md:w-5 md:h-5" />
+                    </div>
+                  </a>
                 </div>
 
                 {/* Bottom Gradient Line */}

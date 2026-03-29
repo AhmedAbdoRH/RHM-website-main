@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Toaster } from '@/components/ui/toaster';
 import { Chatbot } from '@/components/chatbot/Chatbot';
+import { PerformanceMonitor } from '@/components/ui/performance-monitor';
 
 export const metadata: Metadata = {
   title: 'RHM للتميز الرقمي | رحلة هدف للحلول الرقمية',
@@ -44,8 +45,24 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+        
+        {/* Performance optimizations */}
+        <link rel="dns-prefetch" href="//images.unsplash.com" />
+        <link rel="dns-prefetch" href="//picsum.photos" />
+        <link rel="dns-prefetch" href="//placehold.co" />
+        
+        {/* Preload critical resources */}
+        <link rel="preload" href="/RHM.jpg" as="image" type="image/jpeg" />
+        
+        {/* Viewport and theme optimizations */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="theme-color" content="#000000" />
+        
+        {/* Performance hints */}
+        <link rel="modulepreload" href="/_next/static/chunks/main-app.js" />
       </head>
       <body className="font-body antialiased">
+        <PerformanceMonitor />
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
