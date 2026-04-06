@@ -103,10 +103,10 @@ export default function PortfolioPage() {
               نحن مستعدون للاستماع. دعنا نصنع شيئًا رائعًا معًا.
             </p>
             <Button asChild size="lg" className="mt-8 bg-gradient-to-r from-accent to-primary text-primary-foreground border-none">
-              <Link href="/contact">
+              <a href="https://wa.me/201008116452">
                 اتصل بنا
                 <ArrowLeft className="mr-2 h-5 w-5" />
-              </Link>
+              </a>
             </Button>
           </FadeIn>
         </div>

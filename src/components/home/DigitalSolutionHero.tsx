@@ -311,7 +311,7 @@ const DigitalSolutionHero = () => {
 
             {/* Buttons CTA */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 mt-8 md:mt-12 justify-start">
-                <button className="group relative px-8 md:px-10 py-4 md:py-5 overflow-hidden font-bold rounded-full transition-all duration-300 flex items-center gap-3 shadow-[0_10px_20px_rgba(96,176,147,0.2)] hover:shadow-[0_15px_30px_rgba(96,176,147,0.3)] hover:-translate-y-1">
+                <a href="https://wa.me/201008116452" className="group relative px-8 md:px-10 py-4 md:py-5 overflow-hidden font-bold rounded-full transition-all duration-300 flex items-center gap-3 shadow-[0_10px_20px_rgba(96,176,147,0.2)] hover:shadow-[0_15px_30px_rgba(96,176,147,0.3)] hover:-translate-y-1">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#60b093] to-[#d9f2a6] transition-all duration-500 group-hover:opacity-90" />
                   <span className="relative z-10 text-[#0d1712]">ابدأ معنا الآن</span>
                   <div className="relative z-10 w-8 h-8 rounded-full bg-[#0d1712]/10 flex items-center justify-center group-hover:-translate-x-1 transition-transform">
@@ -319,7 +319,7 @@ const DigitalSolutionHero = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
-                </button>
+                </a>
 
                 <button 
                   onClick={() => {

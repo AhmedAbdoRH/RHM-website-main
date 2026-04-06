@@ -24,10 +24,10 @@ export function CTASection() {
             </div>
 
             <div className="relative z-10 flex-shrink-0 w-full md:w-auto">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-[#60b093] to-[#d9f2a6] rounded-xl text-[#1a2e26] font-bold text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(96,176,147,0.4)] hover:scale-105 w-full md:w-auto flex items-center justify-center gap-3">
+              <a href="https://wa.me/201008116452" className="group relative px-8 py-4 bg-gradient-to-r from-[#60b093] to-[#d9f2a6] rounded-xl text-[#1a2e26] font-bold text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(96,176,147,0.4)] hover:scale-105 w-full md:w-auto flex items-center justify-center gap-3">
                 <span>ابدأ معنا الآن</span>
                 <ArrowLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
-              </button>
+              </a>
             </div>
           </div>
         </FadeIn>

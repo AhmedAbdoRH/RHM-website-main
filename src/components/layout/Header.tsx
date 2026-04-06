@@ -42,7 +42,7 @@ export function Header() {
 
         <div className="hidden md:block">
           <Button asChild className="rounded-full px-8 py-5 bg-gradient-to-r from-[#60b093] to-[#d9f2a6] text-[#0d1712] font-bold border-none hover:scale-105 transition-all shadow-[0_0_20px_rgba(96,176,147,0.2)]">
-            <Link href="/contact">ابدأ مشروعك معنا</Link>
+            <a href="https://wa.me/201008116452">ابدأ مشروعك معنا</a>
           </Button>
         </div>
       </div>

@@ -42,8 +42,10 @@ export default function ContactPage() {
                 </div>
                 <Input placeholder="الموضوع" />
                 <Textarea placeholder="رسالتك" rows={6} />
-                <Button type="submit" size="lg" className="bg-gradient-to-r from-accent to-primary text-primary-foreground border-none">
-                  إرسال الرسالة
+                <Button type="submit" size="lg" className="bg-gradient-to-r from-accent to-primary text-primary-foreground border-none" asChild>
+                  <a href="https://wa.me/201008116452">
+                    تواصل عبر واتساب
+                  </a>
                 </Button>
               </form>
             </FadeIn>
@@ -68,8 +70,8 @@ export default function ContactPage() {
                   <div className="flex items-start gap-4">
                     <Phone className="h-6 w-6 text-primary mt-1" />
                     <div>
-                      <h4 className="font-semibold text-foreground">اتصل بنا</h4>
-                      <a href="tel:+1234567890" className="hover:text-primary">(123) 456-7890</a>
+                      <h4 className="font-semibold text-foreground">تواصل عبر واتساب</h4>
+                      <a href="https://wa.me/201008116452" className="hover:text-primary">01008116452</a>
                     </div>
                   </div>
                 </div>

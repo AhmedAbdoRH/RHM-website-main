@@ -82,80 +82,12 @@ export function Chatbot() {
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger asChild>
-        <Button
-          className="fixed bottom-6 left-6 h-16 w-16 rounded-full shadow-lg bg-gradient-to-r from-accent to-primary text-primary-foreground border-none hover:opacity-90 transition-opacity"
-          aria-label="افتح المحادثة"
-        >
-          <MessageCircle className="h-8 w-8" />
-        </Button>
-      </SheetTrigger>
-      <SheetContent className="flex flex-col p-0" side="left">
-        <SheetHeader className="p-6 pb-2">
-          <SheetTitle className="font-headline">بوت تأهيل العملاء المحتملين</SheetTitle>
-          <SheetDescription>دعني أساعدك في العثور على الفريق المناسب لاحتياجاتك.</SheetDescription>
-        </SheetHeader>
-        <ScrollArea className="flex-1" ref={scrollAreaRef}>
-          <div className="p-6 space-y-6">
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={cn(
-                  'flex items-start gap-3',
-                  message.role === 'user' ? 'justify-end' : 'justify-start'
-                )}
-              >
-                {message.role === 'bot' && (
-                  <Avatar className="w-8 h-8 bg-primary text-primary-foreground">
-                    <AvatarFallback><Bot className="w-5 h-5" /></AvatarFallback>
-                  </Avatar>
-                )}
-                <div
-                  className={cn(
-                    'max-w-[75%] rounded-lg px-4 py-2 text-sm',
-                    message.role === 'user'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-muted-foreground'
-                  )}
-                >
-                  {message.content}
-                </div>
-                {message.role === 'user' && (
-                  <Avatar className="w-8 h-8 bg-secondary text-secondary-foreground">
-                     <AvatarFallback><User className="w-5 h-5" /></AvatarFallback>
-                  </Avatar>
-                )}
-              </div>
-            ))}
-             {isLoading && (
-              <div className="flex items-start gap-3 justify-start">
-                <Avatar className="w-8 h-8 bg-primary text-primary-foreground">
-                    <AvatarFallback><Bot className="w-5 h-5" /></AvatarFallback>
-                </Avatar>
-                <div className="bg-muted text-muted-foreground rounded-lg px-4 py-3 text-sm flex items-center">
-                  <Loader className="w-4 h-4 ml-2 animate-spin" />
-                  <span>أفكر...</span>
-                </div>
-              </div>
-            )}
-          </div>
-        </ScrollArea>
-        <SheetFooter className="p-4 border-t">
-          <form onSubmit={handleSubmit} className="flex w-full items-center space-x-2">
-            <Input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="أخبرني عن مشروعك..."
-              disabled={isLoading}
-              autoComplete="off"
-            />
-            <Button type="submit" disabled={isLoading || !input.trim()}>
-              <Send className="h-4 w-4" />
-            </Button>
-          </form>
-        </SheetFooter>
-      </SheetContent>
-    </Sheet>
+    <a
+      href="https://wa.me/201008116452"
+      className="fixed bottom-6 left-6 h-16 w-16 rounded-full shadow-lg bg-gradient-to-r from-accent to-primary text-primary-foreground border-none hover:opacity-90 transition-opacity z-[9999] flex items-center justify-center"
+      aria-label="تواصل عبر واتساب"
+    >
+      <MessageCircle className="h-8 w-8" />
+    </a>
   );
 }
