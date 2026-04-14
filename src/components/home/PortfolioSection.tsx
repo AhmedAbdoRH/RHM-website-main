@@ -27,6 +27,7 @@ const projects = [
     categoryName: 'تطوير الويب',
     image: '/website/1.webp',
     link: 'https://Ana-Kafou.com',
+    displayUrl: 'Ana-Kafou.com',
     description: 'منصة رقمية متكاملة لتقديم الخدمات والحلول المتنوعة.'
   },
   {
@@ -46,6 +47,7 @@ const projects = [
     categoryName: 'تطوير الويب',
     image: '/website/8.webp',
     link: 'https://Firefly-Agency.com',
+    displayUrl: 'Firefly-Agency.com',
     description: 'منصة إبداعية لعرض حلول الهوية البصرية والتسويق.'
   },
   {
@@ -55,25 +57,18 @@ const projects = [
     categoryName: 'تطوير الويب',
     image: '/website/3.webp',
     link: 'https://Alsamah-Store.com',
+    displayUrl: 'Alsamah-Store.com',
     description: 'متجر إلكتروني متطور لعرض وبيع المفروشات المنزلية.'
   },
   {
-    id: 5,
-    title: 'موقع شركة الماسة الصناعية',
+    id: 14,
+    title: 'جاردينيا للاستشارات البيئية',
     category: 'web',
     categoryName: 'تطوير الويب',
-    image: '/website/5.webp',
-    link: 'https://Almasa.com.sa',
-    description: 'منصة لعرض المنتجات الصناعية والحلول التقنية للمصانع.'
-  },
-  {
-    id: 4,
-    title: 'موقع شركة سمارت هوم للإنشاءات',
-    category: 'web',
-    categoryName: 'تطوير الويب',
-    image: '/website/4.webp',
-    link: 'https://SmartTeamEg.com',
-    description: 'موقع تعريفي لخدمات الإنشاءات والتصميم المعماري.'
+    image: '/website/14.jpeg',
+    link: 'https://GardeniaEC.com',
+    displayUrl: 'GardeniaEC.com',
+    description: 'استشارات بيئية متخصصة وحلول مستدامة.'
   },
   {
     id: 7,
@@ -82,16 +77,28 @@ const projects = [
     categoryName: 'تطوير الويب',
     image: '/website/7.webp',
     link: 'https://PovaAgency.com',
+    displayUrl: 'PovaAgency.com',
     description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
   },
   {
-    id: 6,
-    title: 'متجر سفير العطور',
+    id: 5,
+    title: 'موقع شركة الماسة الصناعية',
     category: 'web',
     categoryName: 'تطوير الويب',
-    image: '/website/6.webp',
-    link: 'https://perfume-ambassador.com',
-    description: 'تجربة تسوق فاخرة للعطور والمنتجات العطرية.'
+    image: '/website/5.webp',
+    link: 'https://Almasa.com.sa',
+    displayUrl: 'Almasa.com.sa',
+    description: 'منصة لعرض المنتجات الصناعية والحلول التقنية للمصانع.'
+  },
+  {
+    id: 4,
+    title: 'mokat company for smart home',
+    category: 'web',
+    categoryName: 'Web Development',
+    image: '/website/4.webp',
+    link: 'https://SmartTeamEg.com',
+    displayUrl: 'SmartTeamEg.com',
+    description: 'Informative site for construction and architectural design services.'
   },
   {
     id: 9,
@@ -100,6 +107,7 @@ const projects = [
     categoryName: 'تطوير الويب',
     image: '/website/9.webp',
     link: 'https://designs-4u.com',
+    displayUrl: 'designs-4u.com',
     description: 'متجر إلكتروني لبيع خدمات ومنتجات التصميم الجرافيكي.'
   },
   {
@@ -109,6 +117,7 @@ const projects = [
     categoryName: 'تطوير الويب',
     image: '/website/2.webp',
     link: 'https://BestBusTransport.com',
+    displayUrl: 'BestBusTransport.com',
     description: 'نظام حجز وإدارة رحلات النقل الجماعي والخاص.'
   },
   {
@@ -118,6 +127,7 @@ const projects = [
     categoryName: 'تطوير الويب',
     image: '/website/11.png',
     link: 'https://elrayantechnology.com',
+    displayUrl: 'elrayantechnology.com',
     description: 'شركة متخصصة في تقديم الحلول التكنولوجية المتكاملة.'
   },
   {
@@ -127,6 +137,7 @@ const projects = [
     categoryName: 'تطوير الويب',
     image: '/website/12.png',
     link: 'https://elroaa-store.com',
+    displayUrl: 'elroaa-store.com',
     description: 'منصة تجارية متطورة للتوريدات والتجارة الإلكترونية.'
   },
   {
@@ -136,72 +147,70 @@ const projects = [
     categoryName: 'تطوير الويب',
     image: '/website/13.webp',
     link: 'https://el-wessam.netlify.app',
+    displayUrl: 'el-wessam.netlify.app',
     description: 'خدمات نقل فاخرة وليموزين عالية الجودة.'
-  },
-  {
-    id: 14,
-    title: 'جاردينيا للاستشارات البيئية',
-    category: 'web',
-    categoryName: 'تطوير الويب',
-    image: '/website/14.jpeg',
-    link: 'https://fly-gardenia.netlify.app',
-    description: 'استشارات بيئية متخصصة وحلول مستدامة.'
   },
   // Apps
   {
-    id: 1,
+    id: 101,
     title: 'تطبيق ممتن',
     category: 'apps',
     categoryName: 'تطبيقات الأندرويد',
     image: '/androin/oc.png',
-    link: '#',
+    link: 'https://momtn.app/',
+    displayUrl: 'تطبيق تواصل إجتماعي',
     description: 'تطبيق تواصل إجتماعي'
   },
   {
-    id: 2,
+    id: 102,
     title: 'تطبيق أونلاين كاتالوج',
     category: 'apps',
     categoryName: 'تطبيقات الأندرويد',
     image: '/androin/momtn.png',
-    link: '#',
+    link: 'https://play.google.com/store/apps/details?id=com.nextcatalog.app',
+    displayUrl: 'تطبيق للتجارة الإلكترونية',
     description: 'تطبيق التجارة الإلكترونية'
   },
   // Systems & ERP
   {
-    id: 5,
+    id: 201,
     title: 'برنامج إزالة الصمت من الفيديوهات تلقائيا',
     category: 'systems',
     categoryName: 'الأنظمة الداخلية',
     image: '/prog/1.png',
     link: '#',
+    displayUrl: 'رحلة هدف للإنتاج المرئي',
     description: 'رحلة هدف للإنتاج المرئي'
   },
   {
-    id: 6,
+    id: 202,
     title: 'نظام إدارة المبيعات',
     category: 'systems',
     categoryName: 'تطوير الأنظمة الداخلية',
     image: '/prog/2.png',
     link: '#',
+    displayUrl: 'شركة فوربيد للأثاث والمفروشات',
     description: 'شركة فوربيد للأثاث والمفروشات'
   },
   // AI & Automation
   {
-    id: 7,
+    id: 301,
     title: 'وكيل الرد على العملاء (Ai Chat Agent)',
     category: 'ai',
     categoryName: 'أتمته وAI',
     image: '/Ai/1.png',
     link: '#',
+    displayUrl: 'شركة سمارت تيم للإنشاءات',
     description: 'شركة سمارت تيم للإنشاءات'
   },
   {
-    id: 8,
+    id: 302,
     title: 'برنامج التحدث مع ملفات البيانات (ChatWithData)',
     category: 'ai',
     categoryName: 'أتمته وAI',
     image: '/Ai/2.png',
     link: '#',
+    displayUrl: 'جمعية رسالة للأعمال الخيرية',
     description: 'جمعية رسالة للأعمال الخيرية'
   }
 ];
@@ -364,17 +373,7 @@ export function PortfolioSection() {
 
                       <div className="flex flex-col overflow-hidden">
                         <span className="text-[#234338] text-[10px] md:text-base font-black tracking-wide truncate group-hover:text-[#60b093] transition-colors duration-300">
-                          {activeTab === 'apps' ? 
-                            (project.title === 'تطبيق ممتن' ? 'تطبيق تواصل إجتماعي' : 
-                             project.title === 'تطبيق أونلاين كاتالوج' ? 'تطبيق للتجارة الإلكترونية' : 
-                             project.displayUrl || project.link.replace('https://', '').replace('www.', '').replace('/go', ''))
-                            : 
-                            (activeTab === 'systems' && project.title === 'برنامج إزالة الصمت من الفيديوهات تلقائيا' ? 'رحلة هدف للإنتاج المرئي' :
-                             activeTab === 'systems' && project.title === 'نظام إدارة المبيعات' ? 'شركة فوربيد للأثاث والمفروشات' :
-                             activeTab === 'ai' && project.title === 'وكيل الرد على العملاء (Ai Chat Agent)' ? 'شركة سمارت تيم للإنشاءات' :
-                             activeTab === 'ai' && project.title === 'برنامج التحدث مع ملفات البيانات (ChatWithData)' ? 'جمعية رسالة للأعمال الخيرية' :
-                             project.displayUrl || project.link.replace('https://', '').replace('www.', '').replace('/go', ''))
-                          }
+                          {project.displayUrl}
                         </span>
                       </div>
                     </div>
