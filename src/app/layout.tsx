@@ -77,6 +77,11 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#60b093" />
         
+        {/* Favicon */}
+        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="icon" href="/logo.png" sizes="32x32" />
+        <link rel="icon" href="/logo.png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/logo.png" sizes="180x180" />
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
         
