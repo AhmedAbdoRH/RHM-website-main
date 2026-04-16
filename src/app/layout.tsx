@@ -91,6 +91,8 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="RHM Digital Solutions" />
         <meta property="og:image:type" content="image/png" />
+        <meta property="og:url" content="https://rhm-digital.com" />
+        <meta property="fb:app_id" content="your-facebook-app-id" />
         
         {/* Twitter Card Image */}
         <meta name="twitter:image" content="https://rhm-digital.com/opengraph-image" />
