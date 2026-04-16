@@ -32,11 +32,12 @@ const nextConfig: NextConfig = {
   },
   poweredByHeader: false,
   compress: true,
+  serverExternalPackages: ['@genkit-ai/google-genai'],
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
-    serverComponentsExternalPackages: ['@genkit-ai/google-genai'],
   },
+  turbopack: {},
   headers: async () => [
     {
       source: '/(.*)',
