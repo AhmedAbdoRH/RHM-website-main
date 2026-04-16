@@ -10,8 +10,6 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function OpengraphImage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://rhm-digital.com';
-
   return new ImageResponse(
     (
       <div
@@ -23,6 +21,7 @@ export default async function OpengraphImage() {
           justifyContent: 'center',
           background: '#000000',
           position: 'relative',
+          fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, Arial',
         }}
       >
         <div
@@ -55,18 +54,47 @@ export default async function OpengraphImage() {
               borderRadius: 40,
               background: 'rgba(255,255,255,0.03)',
               boxShadow: '0 40px 120px rgba(0,0,0,0.55)',
+              flexDirection: 'column',
+              gap: 20,
+              padding: 60,
+              textAlign: 'center',
             }}
           >
-            <img
-              src={`${siteUrl}/icon.png`}
-              width={520}
-              height={520}
-              alt="RHM"
+            <div
               style={{
-                objectFit: 'contain',
-                filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.45))',
+                fontSize: 160,
+                fontWeight: 900,
+                letterSpacing: -6,
+                lineHeight: 1,
+                color: '#ffffff',
+                textShadow: '0 30px 70px rgba(0,0,0,0.55)',
               }}
-            />
+            >
+              RHM
+            </div>
+
+            <div
+              style={{
+                fontSize: 60,
+                fontWeight: 800,
+                color: 'rgba(255,255,255,0.92)',
+                lineHeight: 1.15,
+              }}
+            >
+              Digital Solutions
+            </div>
+
+            <div
+              style={{
+                fontSize: 40,
+                fontWeight: 700,
+                color: 'rgba(217,242,166,0.95)',
+                direction: 'rtl',
+                lineHeight: 1.25,
+              }}
+            >
+              نُحوّل الأفكار إلى واقع رقمي
+            </div>
           </div>
         </div>
       </div>
