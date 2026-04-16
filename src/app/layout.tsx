@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: 'حلول رقمية متكاملة لنمو أعمالك: مواقع ومتاجر إلكترونية، تطبيقات أندرويد، أنظمة داخلية/ERP، وأتمتة وذكاء اصطناعي. تواصل معنا وابدأ رحلتك الآن.',
     images: [
       {
-        url: '/logo.png',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'RHM Digital Solutions',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'RHM | RHM Digital Solutions',
     description: 'شريكك الرقمي: تطوير مواقع ومتاجر، تطبيقات أندرويد، أنظمة داخلية/ERP، وأتمتة وذكاء اصطناعي. اطلب استشارة وابدأ الآن.',
-    images: ['/logo.png'],
+    images: ['/opengraph-image'],
     creator: '@RHM',
     site: '@RHM',
   },
