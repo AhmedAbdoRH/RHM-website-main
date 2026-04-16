@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: 'حلول رقمية متكاملة لنمو أعمالك: مواقع ومتاجر إلكترونية، تطبيقات أندرويد، أنظمة داخلية/ERP، وأتمتة وذكاء اصطناعي. تواصل معنا وابدأ رحلتك الآن.',
     images: [
       {
-        url: '/opengraph-image',
+        url: 'https://rhm-digital.com/logo2.png',
         width: 1200,
         height: 630,
         alt: 'RHM Digital Solutions',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'RHM | RHM Digital Solutions',
     description: 'شريكك الرقمي: تطوير مواقع ومتاجر، تطبيقات أندرويد، أنظمة داخلية/ERP، وأتمتة وذكاء اصطناعي. اطلب استشارة وابدأ الآن.',
-    images: ['/opengraph-image'],
+    images: ['https://rhm-digital.com/logo2.png'],
     creator: '@RHM',
     site: '@RHM',
   },
@@ -86,7 +86,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logo.png" sizes="180x180" />
         
         {/* Open Graph Image - explicit for WhatsApp */}
-        <meta property="og:image" content="https://rhm-digital.com/opengraph-image" />
+        <meta property="og:image" content="https://rhm-digital.com/logo2.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="RHM Digital Solutions" />
@@ -95,7 +95,7 @@ export default function RootLayout({
         <meta property="fb:app_id" content="your-facebook-app-id" />
         
         {/* Twitter Card Image */}
-        <meta name="twitter:image" content="https://rhm-digital.com/opengraph-image" />
+        <meta name="twitter:image" content="https://rhm-digital.com/logo2.png" />
         
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
