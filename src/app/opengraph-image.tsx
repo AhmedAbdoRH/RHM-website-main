@@ -12,7 +12,7 @@ export const contentType = 'image/png';
 export default async function OpengraphImage() {
   // Fetch the logo from public folder
   const logoResponse = await fetch(
-    new URL('/logo.png', process.env.NEXT_PUBLIC_SITE_URL || 'https://rhm-digital.com')
+    new URL('/logo2.png', process.env.NEXT_PUBLIC_SITE_URL || 'https://rhm-digital.com')
   );
   const logoBuffer = await logoResponse.arrayBuffer();
   const logoBase64 = Buffer.from(logoBuffer).toString('base64');
