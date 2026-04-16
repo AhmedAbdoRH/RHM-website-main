@@ -10,16 +10,16 @@ export const metadata: Metadata = {
   title: 'RHM | RHM Digital Solutions',
   description: 'We transform ideas into stunning digital reality. Specializing in programming, marketing, and video production to create exceptional experiences that make a real difference.',
   icons: {
-    icon: '/RHM.jpg',
-    apple: '/RHM.jpg',
-    shortcut: '/RHM.jpg',
+    icon: '/logo.png',
+    apple: '/logo.png',
+    shortcut: '/logo.png',
   },
   openGraph: {
     title: 'RHM | RHM Digital Solutions',
     description: 'Your journey to the top starts here. Integrated digital solutions including programming, marketing, and video production with the latest global technologies.',
     images: [
       {
-        url: '/RHM.jpg',
+        url: '/logo.png',
         width: 1200,
         height: 630,
         alt: 'RHM Digital Solutions',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'RHM | RHM Digital Solutions',
     description: 'We innovate, design, and execute. Your strategic partner for success in the digital space.',
-    images: ['/RHM.jpg'],
+    images: ['/logo.png'],
     creator: '@RHM',
     site: '@RHM',
   },
@@ -71,7 +71,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//placehold.co" />
         
         {/* Preload critical resources */}
-        <link rel="preload" href="/RHM.jpg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/logo.png" as="image" type="image/png" />
         
         {/* Viewport and theme optimizations */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
