@@ -10,13 +10,6 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function OpengraphImage() {
-  // Fetch the logo from public folder
-  const logoResponse = await fetch(
-    new URL('/logo2.png', process.env.NEXT_PUBLIC_SITE_URL || 'https://rhm-digital.com')
-  );
-  const logoBuffer = await logoResponse.arrayBuffer();
-  const logoBase64 = Buffer.from(logoBuffer).toString('base64');
-
   return new ImageResponse(
     (
       <div
@@ -26,7 +19,7 @@ export default async function OpengraphImage() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#ffffff',
+          background: 'linear-gradient(135deg, #60b093 0%, #234338 100%)',
           position: 'relative',
           fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, Arial',
         }}
@@ -36,7 +29,7 @@ export default async function OpengraphImage() {
             position: 'absolute',
             inset: 0,
             background:
-              'radial-gradient(circle at top left, rgba(96,176,147,0.15), transparent 55%), radial-gradient(circle at bottom right, rgba(217,242,166,0.10), transparent 55%)',
+              'radial-gradient(circle at top left, rgba(255,255,255,0.1), transparent 50%), radial-gradient(circle at bottom right, rgba(217,242,166,0.1), transparent 50%)',
           }}
         />
 
@@ -57,55 +50,56 @@ export default async function OpengraphImage() {
               justifyContent: 'center',
               width: '100%',
               height: '100%',
-              border: '1px solid rgba(96,176,147,0.20)',
+              border: '2px solid rgba(255,255,255,0.2)',
               borderRadius: 40,
               background: 'rgba(255,255,255,0.95)',
-              boxShadow: '0 40px 120px rgba(96,176,147,0.25)',
+              boxShadow: '0 40px 120px rgba(0,0,0,0.3)',
               flexDirection: 'column',
-              gap: 30,
+              gap: 20,
               padding: 60,
               textAlign: 'center',
             }}
           >
-            {/* Logo Image */}
+            {/* Logo Circle */}
             <div
               style={{
-                width: 280,
-                height: 280,
-                borderRadius: 20,
-                overflow: 'hidden',
+                width: 200,
+                height: 200,
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #60b093 0%, #234338 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: '#ffffff',
-                boxShadow: '0 20px 60px rgba(96,176,147,0.20)',
+                boxShadow: '0 20px 60px rgba(96,176,147,0.3)',
               }}
             >
-              <img
-                src={`data:image/png;base64,${logoBase64}`}
-                alt="RHM Logo"
+              <div
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
+                  fontSize: 80,
+                  fontWeight: 900,
+                  color: '#ffffff',
+                  letterSpacing: -2,
+                  textShadow: '0 10px 30px rgba(0,0,0,0.3)',
                 }}
-              />
+              >
+                RHM
+              </div>
             </div>
 
             <div
               style={{
-                fontSize: 48,
+                fontSize: 56,
                 fontWeight: 800,
                 color: '#234338',
                 lineHeight: 1.15,
               }}
             >
-              RHM Digital Solutions
+              Digital Solutions
             </div>
 
             <div
               style={{
-                fontSize: 32,
+                fontSize: 36,
                 fontWeight: 600,
                 color: '#60b093',
                 direction: 'rtl',
