@@ -7,12 +7,13 @@ import { Chatbot } from '@/components/chatbot/Chatbot';
 import { PerformanceMonitor } from '@/components/ui/performance-monitor';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://rhm-digital.com'),
   title: 'RHM | RHM Digital Solutions',
   description: 'We transform ideas into stunning digital reality. Specializing in programming, marketing, and video production to create exceptional experiences that make a real difference.',
   icons: {
-    icon: '/logo.png',
+    icon: '/favicon.ico',
     apple: '/logo.png',
-    shortcut: '/logo.png',
+    shortcut: '/favicon.ico',
   },
   openGraph: {
     title: 'RHM | RHM Digital Solutions',
@@ -78,6 +79,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#60b093" />
         
         {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="/logo.png" type="image/png" />
         <link rel="icon" href="/logo.png" sizes="32x32" />
         <link rel="icon" href="/logo.png" sizes="16x16" />
