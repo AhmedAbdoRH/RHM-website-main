@@ -58,7 +58,7 @@ export default async function OpengraphImage() {
             }}
           >
             <img
-              src={`${siteUrl}/logo.png`}
+              src={`${siteUrl}/icon.png`}
               width={520}
               height={520}
               alt="RHM"
