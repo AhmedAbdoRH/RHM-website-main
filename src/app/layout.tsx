@@ -84,6 +84,17 @@ export default function RootLayout({
         <link rel="icon" href="/logo.png" sizes="32x32" />
         <link rel="icon" href="/logo.png" sizes="16x16" />
         <link rel="apple-touch-icon" href="/logo.png" sizes="180x180" />
+        
+        {/* Open Graph Image - explicit for WhatsApp */}
+        <meta property="og:image" content="https://rhm-digital.com/opengraph-image" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="RHM Digital Solutions" />
+        <meta property="og:image:type" content="image/png" />
+        
+        {/* Twitter Card Image */}
+        <meta name="twitter:image" content="https://rhm-digital.com/opengraph-image" />
+        
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
         
