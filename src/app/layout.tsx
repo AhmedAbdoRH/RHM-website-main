@@ -9,7 +9,7 @@ import { PerformanceMonitor } from '@/components/ui/performance-monitor';
 export const metadata: Metadata = {
   metadataBase: new URL('https://rhm-digital.com'),
   title: 'RHM | RHM Digital Solutions',
-  description: 'We transform ideas into stunning digital reality. Specializing in programming, marketing, and video production to create exceptional experiences that make a real difference.',
+  description: 'نُحوّل أفكارك إلى حلول رقمية متكاملة: تطوير مواقع ومتاجر إلكترونية، تطبيقات أندرويد، أنظمة داخلية/ERP، وأتمتة وذكاء اصطناعي—لنقل عملك لمستوى احترافي.',
   icons: {
     icon: '/favicon.ico',
     apple: '/logo.png',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'RHM | RHM Digital Solutions',
-    description: 'Your journey to the top starts here. Integrated digital solutions including programming, marketing, and video production with the latest global technologies.',
+    description: 'حلول رقمية متكاملة لنمو أعمالك: مواقع ومتاجر إلكترونية، تطبيقات أندرويد، أنظمة داخلية/ERP، وأتمتة وذكاء اصطناعي. تواصل معنا وابدأ رحلتك الآن.',
     images: [
       {
         url: '/logo.png',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'RHM | RHM Digital Solutions',
-    description: 'We innovate, design, and execute. Your strategic partner for success in the digital space.',
+    description: 'شريكك الرقمي: تطوير مواقع ومتاجر، تطبيقات أندرويد، أنظمة داخلية/ERP، وأتمتة وذكاء اصطناعي. اطلب استشارة وابدأ الآن.',
     images: ['/logo.png'],
     creator: '@RHM',
     site: '@RHM',
