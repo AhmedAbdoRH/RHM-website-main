@@ -7,30 +7,49 @@ import { Chatbot } from '@/components/chatbot/Chatbot';
 import { PerformanceMonitor } from '@/components/ui/performance-monitor';
 
 export const metadata: Metadata = {
-  title: 'RHM للتميز الرقمي | رحلة هدف للحلول الرقمية',
-  description: 'نُحول الأفكار إلى واقع رقمي مبهر. متخصصون في البرمجة، التسويق، والإنتاج المرئي لنصنع لك تجربة استثنائية تُحدث فرقاً حقيقياً في عالم الأعمال.',
+  title: 'RHM | RHM Digital Solutions',
+  description: 'We transform ideas into stunning digital reality. Specializing in programming, marketing, and video production to create exceptional experiences that make a real difference.',
   icons: {
     icon: '/RHM.jpg',
     apple: '/RHM.jpg',
+    shortcut: '/RHM.jpg',
   },
   openGraph: {
-    title: 'RHM للتميز الرقمي',
-    description: 'رحلتك نحو القمة تبدأ هنا. حلول رقمية متكاملة تشمل البرمجة والتسويق والإنتاج المرئي بأحدث التقنيات العالمية.',
+    title: 'RHM | RHM Digital Solutions',
+    description: 'Your journey to the top starts here. Integrated digital solutions including programming, marketing, and video production with the latest global technologies.',
     images: [
       {
         url: '/RHM.jpg',
         width: 1200,
-        height: 1200,
+        height: 630,
         alt: 'RHM Digital Solutions',
       },
     ],
     type: 'website',
+    locale: 'en_US',
+    siteName: 'RHM Digital Solutions',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RHM للتميز الرقمي',
-    description: 'نبتكر، نصمم، وننفذ. شريكك الاستراتيجي للنجاح في الفضاء الرقمي.',
+    title: 'RHM | RHM Digital Solutions',
+    description: 'We innovate, design, and execute. Your strategic partner for success in the digital space.',
     images: ['/RHM.jpg'],
+    creator: '@RHM',
+    site: '@RHM',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
 };
 
@@ -56,7 +75,10 @@ export default function RootLayout({
         
         {/* Viewport and theme optimizations */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#60b093" />
+        
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
         
         {/* Performance hints */}
         <link rel="modulepreload" href="/_next/static/chunks/main-app.js" />
