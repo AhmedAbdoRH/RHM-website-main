@@ -228,8 +228,10 @@ export function PortfolioSection() {
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const AUTOPLAY_DURATION = 8000; // 8 seconds
-  const PROGRESS_STEP = 100 / (AUTOPLAY_DURATION / 100); // Progress update every 100ms
+  // تطوير الويب يأخذ ضعف الوقت (16 ثانية) والباقي 8 ثوان
+  const getAutoplayDuration = (tabId: string) => {
+    return tabId === 'web' ? 16000 : 8000;
+  };
 
   const handleNextTab = useCallback(() => {
     const currentIndex = categories.findIndex(cat => cat.id === activeTab);
@@ -243,6 +245,9 @@ export function PortfolioSection() {
     let progressInterval: NodeJS.Timeout;
 
     if (!isPaused) {
+      const currentDuration = getAutoplayDuration(activeTab);
+      const PROGRESS_STEP = 100 / (currentDuration / 100);
+
       progressInterval = setInterval(() => {
         setProgress(prev => {
           if (prev >= 100) return 0;
@@ -252,14 +257,14 @@ export function PortfolioSection() {
 
       interval = setInterval(() => {
         handleNextTab();
-      }, AUTOPLAY_DURATION);
+      }, currentDuration);
     }
 
     return () => {
       clearInterval(interval);
       clearInterval(progressInterval);
     };
-  }, [isPaused, handleNextTab, PROGRESS_STEP]);
+  }, [isPaused, handleNextTab, activeTab]);
 
   const filteredProjects = projects.filter(p => p.category === activeTab);
 
