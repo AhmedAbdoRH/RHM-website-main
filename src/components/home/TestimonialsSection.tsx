@@ -37,6 +37,10 @@ const testimonials = [
     id: 8,
     image: '/testimonials/8.jpeg',
   },
+  {
+    id: 9,
+    image: '/testimonials/9.png',
+  },
 ];
 
 export function TestimonialsSection() {

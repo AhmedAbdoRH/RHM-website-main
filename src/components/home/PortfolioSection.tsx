@@ -32,13 +32,13 @@ const projects = [
   },
   {
     id: 10,
-    title: 'منصة أونلاين كاتلوج للتجارة الإلكترونية',
+    title: 'منصة تاجر أونلاين للتجارة الإلكترونية',
     category: 'web',
     categoryName: 'تطوير الويب',
     image: '/website/10.webp',
-    link: 'https://online-catalog.net/go',
-    displayUrl: 'online-catalog.net',
-    description: 'منصة متطورة لعرض المنتجات وإدارة الكتالوجات الإلكترونية.'
+    link: 'https://tagr-online.com',
+    displayUrl: 'tagr-online.com',
+    description: 'منصة متطورة للتجارة الإلكترونية وإدارة المتاجر.'
   },
   {
     id: 8,
@@ -163,11 +163,11 @@ const projects = [
   },
   {
     id: 102,
-    title: 'تطبيق أونلاين كاتالوج',
+    title: 'تطبيق تاجر أونلاين',
     category: 'apps',
     categoryName: 'تطبيقات الأندرويد',
     image: '/androin/momtn.png',
-    link: 'https://play.google.com/store/apps/details?id=com.nextcatalog.app',
+    link: 'https://play.google.com/store/apps/details?id=com.tagronline.app',
     displayUrl: 'تطبيق للتجارة الإلكترونية',
     description: 'تطبيق التجارة الإلكترونية'
   },

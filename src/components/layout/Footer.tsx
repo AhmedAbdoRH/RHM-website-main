@@ -32,7 +32,7 @@ export function Footer() {
                   
                   {/* Company Info - Mobile Optimized */}
                   <div className="text-center sm:text-right flex-1">
-                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-1.5 md:mb-2 opacity-80">جزء من</p>
+                    <p className="text-xs sm:text-sm md:text-base text-foreground mb-1.5 md:mb-2 font-bold">جزء من</p>
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-foreground group-hover:text-[#60b093] transition-colors duration-300 leading-tight">
                       مؤسسة رحلة هدف
                       <span className="block text-base sm:text-lg md:text-2xl mt-0.5 md:mt-1 font-bold">لخدمات التجارة الإلكترونية</span>
@@ -46,6 +46,10 @@ export function Footer() {
                   </div>
                 </div>
               </div>
+
+              {/* Divider */}
+              <div className="hidden lg:block w-px self-stretch mx-4" style={{ background: 'linear-gradient(to bottom, transparent, rgba(96,176,147,0.2), transparent)' }} />
+              <div className="block lg:hidden w-full h-px my-4" style={{ background: 'linear-gradient(to right, transparent, rgba(96,176,147,0.2), transparent)' }} />
 
               {/* Official Information - Mobile Optimized */}
               <div className="flex flex-col sm:flex-row items-stretch gap-4 md:gap-6 lg:gap-8 w-full lg:w-auto">
@@ -92,6 +96,31 @@ export function Footer() {
             </div>
           </div>
         </a>
+
+        {/* Founder Card */}
+        <div className="mb-12 md:mb-16">
+          <div className="p-6 md:p-10 rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#234338]/5 to-[#60b093]/5 border border-[#60b093]/10">
+            <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8">
+              {/* Profile Image */}
+              <div className="relative shrink-0">
+                <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden bg-white shadow-lg" style={{ boxShadow: '0 8px 32px rgba(96,176,147,0.15)' }}>
+                  <img src="/Mah.png" alt="محمد العيسي" className="w-full h-full object-cover" />
+                </div>
+              </div>
+
+              {/* Info */}
+              <div className="text-center sm:text-right flex-1">
+                <p className="text-xs sm:text-sm text-[#60b093] font-bold mb-1">تأسيس وإدارة</p>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-foreground mb-3">
+                  محمد العيسي
+                </h3>
+                <p className="text-sm md:text-base text-muted-foreground max-w-lg leading-relaxed">
+                  خبير بالتجارة الإلكترونية والتسويق الإلكتروني والاستيراد من الصين
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Footer Links - Mobile Optimized */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-8">
