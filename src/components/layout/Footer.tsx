@@ -47,24 +47,15 @@ export function Footer() {
                 </div>
               </a>
 
-              {/* Divider */}
-              <div className="w-full h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(96,176,147,0.3), transparent)' }} />
-
-              {/* Founder Info - Clickable */}
+              {/* Founder Info - Clickable (Without Image) */}
               <a 
                 href="https://linktr.ee/MAHaleissi" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 p-4 md:p-6 rounded-xl bg-white/5 hover:bg-white/10 border border-[#60b093]/10 hover:border-[#60b093]/30 transition-all duration-300 hover:shadow-[0_10px_40px_rgba(96,176,147,0.15)] active:scale-[0.98] md:hover:scale-[1.01]">
-                  {/* Profile Image */}
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden bg-white shadow-[0_8px_32px_rgba(96,176,147,0.2)] group-hover:shadow-[0_12px_40px_rgba(96,176,147,0.35)] transition-all duration-500 group-hover:scale-105 flex-shrink-0 ring-2 ring-[#60b093]/20 group-hover:ring-[#60b093]/40">
-                    <img src="/Mah.png" alt="محمد العيسي" className="w-full h-full object-cover" />
-                  </div>
-                  
-                  {/* Founder Details */}
-                  <div className="text-center sm:text-right flex-1">
+                <div className="p-4 md:p-6 rounded-xl bg-white/5 hover:bg-white/10 border border-[#60b093]/10 hover:border-[#60b093]/30 transition-all duration-300 hover:shadow-[0_10px_40px_rgba(96,176,147,0.15)] active:scale-[0.98] md:hover:scale-[1.01]">
+                  <div className="text-center">
                     <p className="text-xs sm:text-sm text-[#60b093] font-bold mb-1 group-hover:text-[#d9f2a6] transition-colors">تأسيس وإدارة</p>
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-foreground mb-2 group-hover:text-[#60b093] transition-colors">
                       محمد العيسي
@@ -72,7 +63,7 @@ export function Footer() {
                     <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed mb-2">
                       خبير بالتجارة الإلكترونية والتسويق الإلكتروني والاستيراد من الصين
                     </p>
-                    <div className="flex items-center gap-2 justify-center sm:justify-start">
+                    <div className="flex items-center gap-2 justify-center">
                       <span className="text-xs sm:text-sm text-[#60b093] font-medium group-hover:text-[#d9f2a6] transition-colors">linktr.ee/MAHaleissi</span>
                       <svg className="w-3 h-3 sm:w-4 sm:h-4 text-[#60b093] group-hover:translate-x-1 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
