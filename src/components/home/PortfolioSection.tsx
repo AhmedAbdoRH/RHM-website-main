@@ -36,8 +36,8 @@ const projects = [
     category: 'web',
     categoryName: 'تطوير الويب',
     image: '/website/10.webp',
-    link: 'https://tagr-online.com',
-    displayUrl: 'tagr-online.com',
+    link: 'https://Tagr-Online.com',
+    displayUrl: 'Tagr-Online.com',
     description: 'منصة متطورة للتجارة الإلكترونية وإدارة المتاجر.'
   },
   {
@@ -45,7 +45,7 @@ const projects = [
     title: 'موقع وكالة فاير فلاي التسويقية',
     category: 'web',
     categoryName: 'تطوير الويب',
-    image: '/website/8.webp',
+    image: '/website/7.webp',
     link: 'https://Firefly-Agency.com',
     displayUrl: 'Firefly-Agency.com',
     description: 'منصة إبداعية لعرض حلول الهوية البصرية والتسويق.'
@@ -75,7 +75,7 @@ const projects = [
     title: 'موقع وكالة بوفا التسويقية',
     category: 'web',
     categoryName: 'تطوير الويب',
-    image: '/website/7.webp',
+    image: '/website/8.webp',
     link: 'https://PovaAgency.com',
     displayUrl: 'PovaAgency.com',
     description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
@@ -146,19 +146,19 @@ const projects = [
     category: 'web',
     categoryName: 'تطوير الويب',
     image: '/website/13.webp',
-    link: 'https://el-wessam.netlify.app',
-    displayUrl: 'el-wessam.netlify.app',
+    link: 'https://El-Wessam.com',
+    displayUrl: 'El-Wessam.com',
     description: 'خدمات نقل فاخرة وليموزين عالية الجودة.'
   },
   // Apps
   {
     id: 101,
-    title: 'تطبيق ممتن',
+    title: 'تطبيق للتواصل الاجتماعي',
     category: 'apps',
     categoryName: 'تطبيقات الأندرويد',
     image: '/androin/oc.png',
-    link: 'https://momtn.app/',
-    displayUrl: 'تطبيق تواصل إجتماعي',
+    link: 'https://Momtn.vercel.app/',
+    displayUrl: 'Momtn.vercel.app',
     description: 'تطبيق تواصل إجتماعي'
   },
   {

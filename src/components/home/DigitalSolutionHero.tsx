@@ -260,8 +260,8 @@ const DigitalSolutionHero = () => {
                     key={i}
                     x1="50"
                     y1="50"
-                    x2={50 + 45 * Math.cos((angle * Math.PI) / 180)}
-                    y2={50 + 45 * Math.sin((angle * Math.PI) / 180)}
+                    x2={parseFloat((50 + 45 * Math.cos((angle * Math.PI) / 180)).toFixed(4))}
+                    y2={parseFloat((50 + 45 * Math.sin((angle * Math.PI) / 180)).toFixed(4))}
                     stroke="url(#connGrad)"
                     strokeWidth="0.2"
                     className="animate-pulse"

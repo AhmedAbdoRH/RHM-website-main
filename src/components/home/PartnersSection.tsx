@@ -15,14 +15,14 @@ const partners = [
   {
     id: 1,
     name: 'وكالة فاير فلاي التسويقية',
-    logo: '/s1.png',
+    logo: '/s2.png',
     description: 'Firefly-Agency.com',
     link: 'https://Firefly-Agency.com',
   },
   {
     id: 2,
     name: 'وكالة بوفا التسويقية',
-    logo: '/s2.png',
+    logo: '/s1.png',
     description: 'PovaAgency.com',
     link: 'https://PovaAgency.com',
   },
