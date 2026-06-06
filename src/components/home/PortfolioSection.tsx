@@ -80,6 +80,36 @@ const projects = [
      displayUrl: 'PovaAgency.com',
      description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
    },
+   {
+     id: 3,
+     title: 'متجر السماح للمفروشات (فوربيد)',
+     category: 'web',
+     categoryName: 'تطوير الويب',
+     image: '/website/3.webp',
+     link: 'https://Alsamah-Store.com',
+     displayUrl: 'Alsamah-Store.com',
+     description: 'متجر إلكتروني متطور لعرض وبيع المفروشات المنزلية.'
+   },
+   {
+     id: 14,
+     title: 'جاردينيا للاستشارات البيئية',
+     category: 'web',
+     categoryName: 'تطوير الويب',
+     image: '/website/14.jpeg',
+     link: 'https://GardeniaEC.com',
+     displayUrl: 'GardeniaEC.com',
+     description: 'استشارات بيئية متخصصة وحلول مستدامة.'
+   },
+   {
+     id: 7,
+     title: 'موقع وكالة بوفا التسويقية',
+     category: 'web',
+     categoryName: 'تطوير الويب',
+     image: '/website/7.webp',
+     link: 'https://PovaAgency.com',
+     displayUrl: 'PovaAgency.com',
+     description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
+   },
   {
     id: 5,
     title: 'موقع شركة الماسة الصناعية',
@@ -193,16 +223,16 @@ const projects = [
     description: 'شركة فوربيد للأثاث والمفروشات'
   },
   // AI & Automation
-  {
-    id: 301,
-    title: 'وكيل الرد على العملاء (Ai Chat Agent)',
-    category: 'ai',
-    categoryName: 'أتمته وAI',
-    image: '/Ai/1.png',
-    link: '#',
-    displayUrl: 'شركة سمارت تيم للإنشاءات',
-    description: 'شركة سمارت تيم للإنشاءات'
-  },
+{
+  id: 301,
+  title: 'وكيل الرد على العملاء (Ai Chat Agent)',
+  category: 'ai',
+  categoryName: 'أتمته وAI',
+  image: '/Ai/1.png',
+  link: '#',
+  displayUrl: 'شركة سمارت تيم لحلول المنازل الذكية',
+  description: 'شركة سمارت تيم لحلول المنازل الذكية'
+},
   {
     id: 302,
     title: 'برنامج التحدث مع ملفات البيانات (ChatWithData)',
