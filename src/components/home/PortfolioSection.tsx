@@ -40,46 +40,46 @@ const projects = [
     displayUrl: 'Tagr-Online.com',
     description: 'منصة متطورة للتجارة الإلكترونية وإدارة المتاجر.'
   },
-  {
-    id: 8,
-    title: 'موقع وكالة فاير فلاي التسويقية',
-    category: 'web',
-    categoryName: 'تطوير الويب',
-    image: '/website/7.webp',
-    link: 'https://Firefly-Agency.com',
-    displayUrl: 'Firefly-Agency.com',
-    description: 'منصة إبداعية لعرض حلول الهوية البصرية والتسويق.'
-  },
-  {
-    id: 3,
-    title: 'متجر السماح للمفروشات (فوربيد)',
-    category: 'web',
-    categoryName: 'تطوير الويب',
-    image: '/website/3.webp',
-    link: 'https://Alsamah-Store.com',
-    displayUrl: 'Alsamah-Store.com',
-    description: 'متجر إلكتروني متطور لعرض وبيع المفروشات المنزلية.'
-  },
-  {
-    id: 14,
-    title: 'جاردينيا للاستشارات البيئية',
-    category: 'web',
-    categoryName: 'تطوير الويب',
-    image: '/website/14.jpeg',
-    link: 'https://GardeniaEC.com',
-    displayUrl: 'GardeniaEC.com',
-    description: 'استشارات بيئية متخصصة وحلول مستدامة.'
-  },
-  {
-    id: 7,
-    title: 'موقع وكالة بوفا التسويقية',
-    category: 'web',
-    categoryName: 'تطوير الويب',
-    image: '/website/8.webp',
-    link: 'https://PovaAgency.com',
-    displayUrl: 'PovaAgency.com',
-    description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
-  },
+   {
+     id: 8,
+     title: 'موقع وكالة فاير فلاي التسويقية',
+     category: 'web',
+     categoryName: 'تطوير الويب',
+     image: '/website/8.webp',
+     link: 'https://Firefly-Agency.com',
+     displayUrl: 'Firefly-Agency.com',
+     description: 'منصة إبداعية لعرض حلول الهوية البصرية والتسويق.'
+   },
+   {
+     id: 3,
+     title: 'متجر السماح للمفروشات (فوربيد)',
+     category: 'web',
+     categoryName: 'تطوير الويب',
+     image: '/website/3.webp',
+     link: 'https://Alsamah-Store.com',
+     displayUrl: 'Alsamah-Store.com',
+     description: 'متجر إلكتروني متطور لعرض وبيع المفروشات المنزلية.'
+   },
+   {
+     id: 14,
+     title: 'جاردينيا للاستشارات البيئية',
+     category: 'web',
+     categoryName: 'تطوير الويب',
+     image: '/website/14.jpeg',
+     link: 'https://GardeniaEC.com',
+     displayUrl: 'GardeniaEC.com',
+     description: 'استشارات بيئية متخصصة وحلول مستدامة.'
+   },
+   {
+     id: 7,
+     title: 'موقع وكالة بوفا التسويقية',
+     category: 'web',
+     categoryName: 'تطوير الويب',
+     image: '/website/7.webp',
+     link: 'https://PovaAgency.com',
+     displayUrl: 'PovaAgency.com',
+     description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
+   },
   {
     id: 5,
     title: 'موقع شركة الماسة الصناعية',
