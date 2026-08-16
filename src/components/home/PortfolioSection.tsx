@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { FadeIn } from '@/components/animations/FadeIn';
-import { ExternalLink, Eye, Github, ArrowRight, Globe, Smartphone, Layers, Bot, Rocket, Users, Clock, Shield } from 'lucide-react';
+import { ExternalLink, Eye, Github, ArrowRight, Globe, Smartphone, ShoppingCart, Bot, Rocket, Users, Clock, Shield } from 'lucide-react';
 
 const colors = {
   primary: '#60b093',
@@ -12,109 +12,59 @@ const colors = {
 };
 
 const categories = [
-  { id: 'web', name: 'تطوير الويب', icon: Globe },
+  { id: 'web', name: 'المواقع', icon: Globe },
+  { id: 'ecommerce', name: 'المتاجر الإلكترونية', icon: ShoppingCart },
   { id: 'apps', name: 'تطبيقات الأندرويد', icon: Smartphone },
-  { id: 'systems', name: 'الأنظمة الداخلية', icon: Layers },
-  { id: 'ai', name: 'أتمته وAI', icon: Bot },
+  { id: 'automation', name: 'الأتمتة', icon: Bot },
 ];
 
 const projects = [
-  // Web & E-commerce
+  // Web
   {
     id: 1,
     title: 'منصة أنا كفو التعليمية',
     category: 'web',
-    categoryName: 'تطوير الويب',
+    categoryName: 'المواقع',
     image: '/website/1.webp',
     link: 'https://Ana-Kafou.com',
     displayUrl: 'Ana-Kafou.com',
     description: 'منصة رقمية متكاملة لتقديم الخدمات والحلول المتنوعة.'
   },
   {
-    id: 10,
-    title: 'منصة تاجر أونلاين للتجارة الإلكترونية',
+    id: 8,
+    title: 'موقع وكالة فاير فلاي التسويقية',
     category: 'web',
-    categoryName: 'تطوير الويب',
-    image: '/website/10.webp',
-    link: 'https://Tagr-Online.com',
-    displayUrl: 'Tagr-Online.com',
-    description: 'منصة متطورة للتجارة الإلكترونية وإدارة المتاجر.'
+    categoryName: 'المواقع',
+    image: '/website/8.webp',
+    link: 'https://Firefly-Agency.com',
+    displayUrl: 'Firefly-Agency.com',
+    description: 'منصة إبداعية لعرض حلول الهوية البصرية والتسويق.'
   },
-   {
-     id: 8,
-     title: 'موقع وكالة فاير فلاي التسويقية',
-     category: 'web',
-     categoryName: 'تطوير الويب',
-     image: '/website/8.webp',
-     link: 'https://Firefly-Agency.com',
-     displayUrl: 'Firefly-Agency.com',
-     description: 'منصة إبداعية لعرض حلول الهوية البصرية والتسويق.'
-   },
-   {
-     id: 3,
-     title: 'متجر السماح للمفروشات (فوربيد)',
-     category: 'web',
-     categoryName: 'تطوير الويب',
-     image: '/website/3.webp',
-     link: 'https://Alsamah-Store.com',
-     displayUrl: 'Alsamah-Store.com',
-     description: 'متجر إلكتروني متطور لعرض وبيع المفروشات المنزلية.'
-   },
-   {
-     id: 14,
-     title: 'جاردينيا للاستشارات البيئية',
-     category: 'web',
-     categoryName: 'تطوير الويب',
-     image: '/website/14.jpeg',
-     link: 'https://GardeniaEC.com',
-     displayUrl: 'GardeniaEC.com',
-     description: 'استشارات بيئية متخصصة وحلول مستدامة.'
-   },
-   {
-     id: 7,
-     title: 'موقع وكالة بوفا التسويقية',
-     category: 'web',
-     categoryName: 'تطوير الويب',
-     image: '/website/7.webp',
-     link: 'https://PovaAgency.com',
-     displayUrl: 'PovaAgency.com',
-     description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
-   },
-   {
-     id: 3,
-     title: 'متجر السماح للمفروشات (فوربيد)',
-     category: 'web',
-     categoryName: 'تطوير الويب',
-     image: '/website/3.webp',
-     link: 'https://Alsamah-Store.com',
-     displayUrl: 'Alsamah-Store.com',
-     description: 'متجر إلكتروني متطور لعرض وبيع المفروشات المنزلية.'
-   },
-   {
-     id: 14,
-     title: 'جاردينيا للاستشارات البيئية',
-     category: 'web',
-     categoryName: 'تطوير الويب',
-     image: '/website/14.jpeg',
-     link: 'https://GardeniaEC.com',
-     displayUrl: 'GardeniaEC.com',
-     description: 'استشارات بيئية متخصصة وحلول مستدامة.'
-   },
-   {
-     id: 7,
-     title: 'موقع وكالة بوفا التسويقية',
-     category: 'web',
-     categoryName: 'تطوير الويب',
-     image: '/website/7.webp',
-     link: 'https://PovaAgency.com',
-     displayUrl: 'PovaAgency.com',
-     description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
-   },
+  {
+    id: 14,
+    title: 'جاردينيا للاستشارات البيئية',
+    category: 'web',
+    categoryName: 'المواقع',
+    image: '/website/14.jpeg',
+    link: 'https://GardeniaEC.com',
+    displayUrl: 'GardeniaEC.com',
+    description: 'استشارات بيئية متخصصة وحلول مستدامة.'
+  },
+  {
+    id: 7,
+    title: 'موقع وكالة بوفا التسويقية',
+    category: 'web',
+    categoryName: 'المواقع',
+    image: '/website/7.webp',
+    link: 'https://PovaAgency.com',
+    displayUrl: 'PovaAgency.com',
+    description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
+  },
   {
     id: 5,
     title: 'موقع شركة الماسة الصناعية',
     category: 'web',
-    categoryName: 'تطوير الويب',
+    categoryName: 'المواقع',
     image: '/website/5.webp',
     link: 'https://Almasa.com.sa',
     displayUrl: 'Almasa.com.sa',
@@ -124,27 +74,17 @@ const projects = [
     id: 4,
     title: 'mokat company for smart home',
     category: 'web',
-    categoryName: 'Web Development',
+    categoryName: 'المواقع',
     image: '/website/4.webp',
     link: 'https://SmartTeamEg.com',
     displayUrl: 'SmartTeamEg.com',
-    description: 'Informative site for construction and architectural design services.'
-  },
-  {
-    id: 9,
-    title: 'متجر ديزاين فور يو للتصميمات',
-    category: 'web',
-    categoryName: 'تطوير الويب',
-    image: '/website/9.webp',
-    link: 'https://designs-4u.com',
-    displayUrl: 'designs-4u.com',
-    description: 'متجر إلكتروني لبيع خدمات ومنتجات التصميم الجرافيكي.'
+    description: 'موقع تعريفي لحلول المنازل الذكية وخدماتها.'
   },
   {
     id: 2,
     title: 'موقع شركة بيست باص للتنقلات',
     category: 'web',
-    categoryName: 'تطوير الويب',
+    categoryName: 'المواقع',
     image: '/website/2.webp',
     link: 'https://BestBusTransport.com',
     displayUrl: 'BestBusTransport.com',
@@ -154,31 +94,62 @@ const projects = [
     id: 11,
     title: 'الريان للحلول التكنولوجية',
     category: 'web',
-    categoryName: 'تطوير الويب',
+    categoryName: 'المواقع',
     image: '/website/11.png',
     link: 'https://elrayantechnology.com',
     displayUrl: 'elrayantechnology.com',
     description: 'شركة متخصصة في تقديم الحلول التكنولوجية المتكاملة.'
   },
   {
-    id: 12,
-    title: 'الرؤى للتجارة والتوريدات',
-    category: 'web',
-    categoryName: 'تطوير الويب',
-    image: '/website/12.png',
-    link: 'https://elroaa-store.com',
-    displayUrl: 'elroaa-store.com',
-    description: 'منصة تجارية متطورة للتوريدات والتجارة الإلكترونية.'
-  },
-  {
     id: 13,
     title: 'شركة الوسام ليموزين',
     category: 'web',
-    categoryName: 'تطوير الويب',
+    categoryName: 'المواقع',
     image: '/website/13.webp',
     link: 'https://El-Wessam.com',
     displayUrl: 'El-Wessam.com',
     description: 'خدمات نقل فاخرة وليموزين عالية الجودة.'
+  },
+  // E-commerce
+  {
+    id: 10,
+    title: 'منصة تاجر أونلاين للتجارة الإلكترونية',
+    category: 'ecommerce',
+    categoryName: 'المتاجر الإلكترونية',
+    image: '/website/10.webp',
+    link: 'https://Tagr-Online.com',
+    displayUrl: 'Tagr-Online.com',
+    description: 'منصة متطورة للتجارة الإلكترونية وإدارة المتاجر.'
+  },
+  {
+    id: 3,
+    title: 'متجر السماح للمفروشات (فوربيد)',
+    category: 'ecommerce',
+    categoryName: 'المتاجر الإلكترونية',
+    image: '/website/3.webp',
+    link: 'https://Alsamah-Store.com',
+    displayUrl: 'Alsamah-Store.com',
+    description: 'متجر إلكتروني متطور لعرض وبيع المفروشات المنزلية.'
+  },
+  {
+    id: 9,
+    title: 'متجر ديزاين فور يو للتصميمات',
+    category: 'ecommerce',
+    categoryName: 'المتاجر الإلكترونية',
+    image: '/website/9.webp',
+    link: 'https://designs-4u.com',
+    displayUrl: 'designs-4u.com',
+    description: 'متجر إلكتروني لبيع خدمات ومنتجات التصميم الجرافيكي.'
+  },
+  {
+    id: 12,
+    title: 'الرؤى للتجارة والتوريدات',
+    category: 'ecommerce',
+    categoryName: 'المتاجر الإلكترونية',
+    image: '/website/12.png',
+    link: 'https://elroaa-store.com',
+    displayUrl: 'elroaa-store.com',
+    description: 'منصة تجارية متطورة للتوريدات والتجارة الإلكترونية.'
   },
   // Apps
   {
@@ -201,43 +172,22 @@ const projects = [
     displayUrl: 'تطبيق للتجارة الإلكترونية',
     description: 'تطبيق التجارة الإلكترونية'
   },
-  // Systems & ERP
+  // Automation
   {
-    id: 201,
-    title: 'برنامج إزالة الصمت من الفيديوهات تلقائيا',
-    category: 'systems',
-    categoryName: 'الأنظمة الداخلية',
-    image: '/prog/1.png',
+    id: 301,
+    title: 'وكيل الرد على العملاء (Ai Chat Agent)',
+    category: 'automation',
+    categoryName: 'الأتمتة',
+    image: '/Ai/1.png',
     link: '#',
-    displayUrl: 'رحلة هدف للإنتاج المرئي',
-    description: 'رحلة هدف للإنتاج المرئي'
+    displayUrl: 'شركة سمارت تيم لحلول المنازل الذكية',
+    description: 'شركة سمارت تيم لحلول المنازل الذكية'
   },
-  {
-    id: 202,
-    title: 'نظام إدارة المبيعات',
-    category: 'systems',
-    categoryName: 'تطوير الأنظمة الداخلية',
-    image: '/prog/2.png',
-    link: '#',
-    displayUrl: 'شركة فوربيد للأثاث والمفروشات',
-    description: 'شركة فوربيد للأثاث والمفروشات'
-  },
-  // AI & Automation
-{
-  id: 301,
-  title: 'وكيل الرد على العملاء (Ai Chat Agent)',
-  category: 'ai',
-  categoryName: 'أتمته وAI',
-  image: '/Ai/1.png',
-  link: '#',
-  displayUrl: 'شركة سمارت تيم لحلول المنازل الذكية',
-  description: 'شركة سمارت تيم لحلول المنازل الذكية'
-},
   {
     id: 302,
     title: 'برنامج التحدث مع ملفات البيانات (ChatWithData)',
-    category: 'ai',
-    categoryName: 'أتمته وAI',
+    category: 'automation',
+    categoryName: 'الأتمتة',
     image: '/Ai/2.png',
     link: '#',
     displayUrl: 'جمعية رسالة للأعمال الخيرية',
@@ -397,9 +347,9 @@ export function PortfolioSection() {
                         <div className="relative p-1 md:p-1.5 rounded-md md:rounded-lg bg-white shadow-sm border border-gray-100 transition-all duration-500 group-hover:border-[#60b093]/30 group-hover:scale-110">
                           {activeTab === 'apps' ? 
                             <Smartphone className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#60b093]" /> :
-                            activeTab === 'systems' ? 
-                            <Layers className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#60b093]" /> :
-                            activeTab === 'ai' ? 
+                            activeTab === 'ecommerce' ? 
+                            <ShoppingCart className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#60b093]" /> :
+                            activeTab === 'automation' ? 
                             <Bot className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#60b093]" /> :
                             <Globe className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#60b093]" />
                           }
