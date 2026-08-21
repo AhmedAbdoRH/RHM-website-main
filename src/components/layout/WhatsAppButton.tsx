@@ -8,7 +8,7 @@ export function WhatsAppButton() {
       href="https://wa.me/201008116452"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 left-6 z-[9999] group"
+      className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[9999] group"
       style={{
         background: 'linear-gradient(135deg, #25D366, #128C7E)',
         boxShadow: '0 4px 20px rgba(37, 211, 102, 0.5)',
