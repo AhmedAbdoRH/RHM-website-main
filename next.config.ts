@@ -1,6 +1,7 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -32,9 +33,8 @@ const nextConfig: NextConfig = {
   },
   poweredByHeader: false,
   compress: true,
-  serverExternalPackages: ['@genkit-ai/google-genai'],
+  serverExternalPackages: [],
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
   },
   turbopack: {},
