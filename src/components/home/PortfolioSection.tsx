@@ -1,8 +1,16 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FadeIn } from '@/components/animations/FadeIn';
-import { ExternalLink, Eye, Github, ArrowRight, Globe, Smartphone, ShoppingCart, Bot, Rocket, Users, Clock, Shield } from 'lucide-react';
+import {
+  ExternalLink,
+  Globe,
+  ShoppingCart,
+  Smartphone,
+  Bot,
+  Rocket,
+  ChevronDown,
+} from 'lucide-react';
 
 const colors = {
   primary: '#60b093',
@@ -11,419 +19,643 @@ const colors = {
   white: '#ffffff',
 };
 
-const categories = [
-  { id: 'web', name: 'المواقع', icon: Globe },
-  { id: 'ecommerce', name: 'المتاجر الإلكترونية', icon: ShoppingCart },
-  { id: 'apps', name: 'تطبيقات الأندرويد', icon: Smartphone },
-  { id: 'automation', name: 'الأتمتة', icon: Bot },
+type CategoryId = 'website' | 'ecommerce' | 'android_app' | 'automation';
+
+const CATEGORY_GROUPS: {
+  value: CategoryId;
+  label: string;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+}[] = [
+  { value: 'website', label: 'المواقع', icon: Globe },
+  { value: 'ecommerce', label: 'المتاجر الإلكترونية', icon: ShoppingCart },
+  { value: 'android_app', label: 'تطبيقات الأندرويد', icon: Smartphone },
+  { value: 'automation', label: 'الأتمتة', icon: Bot },
 ];
 
-const projects = [
-  // Web
+const PROJECTS: {
+  category: CategoryId;
+  image: string;
+  code: string;
+  title: string;
+  summary: string;
+  stack: string;
+  year: string;
+  link?: string;
+  cta?: string;
+  hidden?: boolean;
+}[] = [
+  // ── E-commerce ──
   {
-    id: 1,
-    title: 'منصة أنا كفو التعليمية',
-    category: 'web',
-    categoryName: 'المواقع',
-    image: '/website/1.webp',
-    link: 'https://Ana-Kafou.com',
-    displayUrl: 'Ana-Kafou.com',
-    description: 'منصة رقمية متكاملة لتقديم الخدمات والحلول المتنوعة.'
-  },
-  {
-    id: 8,
-    title: 'موقع وكالة فاير فلاي التسويقية',
-    category: 'web',
-    categoryName: 'المواقع',
-    image: '/website/8.webp',
-    link: 'https://Firefly-Agency.com',
-    displayUrl: 'Firefly-Agency.com',
-    description: 'منصة إبداعية لعرض حلول الهوية البصرية والتسويق.'
-  },
-  {
-    id: 14,
-    title: 'جاردينيا للاستشارات البيئية',
-    category: 'web',
-    categoryName: 'المواقع',
-    image: '/website/14.jpeg',
-    link: 'https://GardeniaEC.com',
-    displayUrl: 'GardeniaEC.com',
-    description: 'استشارات بيئية متخصصة وحلول مستدامة.'
-  },
-  {
-    id: 7,
-    title: 'موقع وكالة بوفا التسويقية',
-    category: 'web',
-    categoryName: 'المواقع',
-    image: '/website/7.webp',
-    link: 'https://PovaAgency.com',
-    displayUrl: 'PovaAgency.com',
-    description: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.'
-  },
-  {
-    id: 5,
-    title: 'موقع شركة الماسة الصناعية',
-    category: 'web',
-    categoryName: 'المواقع',
-    image: '/website/5.webp',
-    link: 'https://Almasa.com.sa',
-    displayUrl: 'Almasa.com.sa',
-    description: 'منصة لعرض المنتجات الصناعية والحلول التقنية للمصانع.'
-  },
-  {
-    id: 4,
-    title: 'mokat company for smart home',
-    category: 'web',
-    categoryName: 'المواقع',
-    image: '/website/4.webp',
-    link: 'https://SmartTeamEg.com',
-    displayUrl: 'SmartTeamEg.com',
-    description: 'موقع تعريفي لحلول المنازل الذكية وخدماتها.'
-  },
-  {
-    id: 2,
-    title: 'موقع شركة بيست باص للتنقلات',
-    category: 'web',
-    categoryName: 'المواقع',
-    image: '/website/2.webp',
-    link: 'https://BestBusTransport.com',
-    displayUrl: 'BestBusTransport.com',
-    description: 'نظام حجز وإدارة رحلات النقل الجماعي والخاص.'
-  },
-  {
-    id: 11,
-    title: 'الريان للحلول التكنولوجية',
-    category: 'web',
-    categoryName: 'المواقع',
-    image: '/website/11.png',
-    link: 'https://elrayantechnology.com',
-    displayUrl: 'elrayantechnology.com',
-    description: 'شركة متخصصة في تقديم الحلول التكنولوجية المتكاملة.'
-  },
-  {
-    id: 13,
-    title: 'شركة الوسام ليموزين',
-    category: 'web',
-    categoryName: 'المواقع',
-    image: '/website/13.webp',
-    link: 'https://El-Wessam.com',
-    displayUrl: 'El-Wessam.com',
-    description: 'خدمات نقل فاخرة وليموزين عالية الجودة.'
-  },
-  // E-commerce
-  {
-    id: 10,
-    title: 'منصة تاجر أونلاين للتجارة الإلكترونية',
     category: 'ecommerce',
-    categoryName: 'المتاجر الإلكترونية',
-    image: '/website/10.webp',
-    link: 'https://Tagr-Online.com',
-    displayUrl: 'Tagr-Online.com',
-    description: 'منصة متطورة للتجارة الإلكترونية وإدارة المتاجر.'
-  },
-  {
-    id: 3,
-    title: 'متجر السماح للمفروشات (فوربيد)',
-    category: 'ecommerce',
-    categoryName: 'المتاجر الإلكترونية',
     image: '/website/3.webp',
+    code: 'Alsamah_Store',
+    title: 'متجر السماح للمفروشات (فوربيد)',
+    summary: 'متجر إلكتروني متطور لعرض وبيع المفروشات المنزلية.',
+    stack: 'Next.js · Tailwind · Supabase',
+    year: '2024 — 2025',
     link: 'https://Alsamah-Store.com',
-    displayUrl: 'Alsamah-Store.com',
-    description: 'متجر إلكتروني متطور لعرض وبيع المفروشات المنزلية.'
+    cta: 'زيارة المتجر',
+    hidden: true,
   },
   {
-    id: 9,
-    title: 'متجر ديزاين فور يو للتصميمات',
     category: 'ecommerce',
-    categoryName: 'المتاجر الإلكترونية',
     image: '/website/9.webp',
+    code: 'Designs_4U',
+    title: 'متجر ديزاين فور يو للتصميمات',
+    summary: 'متجر إلكتروني لبيع خدمات ومنتجات التصميم الجرافيكي.',
+    stack: 'Next.js · Tailwind · Supabase',
+    year: '2024 — 2025',
     link: 'https://designs-4u.com',
-    displayUrl: 'designs-4u.com',
-    description: 'متجر إلكتروني لبيع خدمات ومنتجات التصميم الجرافيكي.'
+    cta: 'زيارة المتجر',
+    hidden: true,
   },
   {
-    id: 12,
-    title: 'الرؤى للتجارة والتوريدات',
     category: 'ecommerce',
-    categoryName: 'المتاجر الإلكترونية',
     image: '/website/12.png',
+    code: 'Elroaa_Trading',
+    title: 'الرؤى للتجارة والتوريدات',
+    summary: 'منصة تجارية متطورة للتوريدات والتجارة الإلكترونية.',
+    stack: 'Next.js · Tailwind · Supabase',
+    year: '2024 — 2025',
     link: 'https://elroaa-store.com',
-    displayUrl: 'elroaa-store.com',
-    description: 'منصة تجارية متطورة للتوريدات والتجارة الإلكترونية.'
+    cta: 'زيارة المتجر',
+    hidden: true,
   },
-  // Apps
   {
-    id: 101,
-    title: 'تطبيق للتواصل الاجتماعي',
-    category: 'apps',
-    categoryName: 'تطبيقات الأندرويد',
+    category: 'ecommerce',
+    image: '/website/10.webp',
+    code: 'Tagr_Online',
+    title: 'منصة تاجر أونلاين للتجارة الإلكترونية',
+    summary: 'منصة متطورة للتجارة الإلكترونية وإدارة المتاجر.',
+    stack: 'Next.js · Tailwind CSS',
+    year: '2024 — 2025',
+    link: 'https://Tagr-Online.com',
+    cta: 'زيارة المتجر',
+  },
+  {
+    category: 'ecommerce',
+    image: '/website/11.png',
+    code: 'Elrayan_Tech',
+    title: 'الريان للحلول التكنولوجية',
+    summary: 'شركة متخصصة في تقديم الحلول التكنولوجية المتكاملة.',
+    stack: 'React · Tailwind CSS',
+    year: '2024 — 2025',
+    link: 'https://elrayantechnology.com',
+    cta: 'زيارة الموقع',
+  },
+  {
+    category: 'ecommerce',
+    image: '/website/16.webp',
+    code: 'Blabli_Store',
+    title: 'متجر بليبي للملابس المخصصة',
+    summary: 'منصة تجارة إلكترونية للملابس المخصصة والهوية البصرية.',
+    stack: 'Next.js · Tailwind CSS',
+    year: '2025',
+    link: 'https://blabli-store.com',
+    cta: 'زيارة المتجر',
+  },
+  {
+    category: 'ecommerce',
+    image: '/website/4.webp',
+    code: 'SmartTeam_Egypt',
+    title: 'موكات للمنازل الذكية',
+    summary: 'موقع تعريفي لحلول المنازل الذكية وخدماتها.',
+    stack: 'React · Tailwind CSS',
+    year: '2024 — 2025',
+    link: 'https://SmartTeamEg.com',
+    cta: 'زيارة الموقع',
+  },
+  // ── Websites ──
+  {
+    category: 'website',
+    image: '/website/15.webp',
+    code: 'Infix_Sport',
+    title: 'إنفكس سبورت للأنظمة الرياضية',
+    summary: 'منصة لأنظمة الأرضيات الرياضية والحلول الرياضية.',
+    stack: 'Next.js · Tailwind CSS',
+    year: '2025',
+    link: 'https://infixsport.com',
+    cta: 'زيارة الموقع',
+  },
+  {
+    category: 'website',
+    image: '/website/1.webp',
+    code: 'Kafou_Edu_Platform',
+    title: 'منصة أنا كفو التعليمية',
+    summary: 'منصة رقمية متكاملة لتقديم الخدمات والحلول المتنوعة.',
+    stack: 'React · Tailwind CSS',
+    year: '2024 — 2025',
+    link: 'https://Ana-Kafou.com',
+    cta: 'زيارة الموقع',
+  },
+  {
+    category: 'website',
+    image: '/website/8.webp',
+    code: 'Firefly_Agency',
+    title: 'موقع وكالة فاير فلاي التسويقية',
+    summary: 'منصة إبداعية لعرض حلول الهوية البصرية والتسويق.',
+    stack: 'React · Tailwind CSS',
+    year: '2024 — 2025',
+    link: 'https://Firefly-Agency.com',
+    cta: 'زيارة الموقع',
+  },
+  {
+    category: 'website',
+    image: '/website/14.jpeg',
+    code: 'Gardenia_EC',
+    title: 'جاردينيا للاستشارات البيئية',
+    summary: 'استشارات بيئية متخصصة وحلول مستدامة.',
+    stack: 'React · Tailwind CSS',
+    year: '2024 — 2025',
+    link: 'https://GardeniaEC.com',
+    cta: 'زيارة الموقع',
+  },
+  {
+    category: 'website',
+    image: '/website/7.webp',
+    code: 'Pova_Agency',
+    title: 'موقع وكالة بوفا التسويقية',
+    summary: 'موقع يعرض خدمات التسويق الرقمي وإدارة الحملات الإعلانية.',
+    stack: 'React · Tailwind CSS',
+    year: '2024 — 2025',
+    link: 'https://PovaAgency.com',
+    cta: 'زيارة الموقع',
+  },
+  {
+    category: 'website',
+    image: '/website/5.webp',
+    code: 'Almasa_Industrial',
+    title: 'موقع شركة الماسة الصناعية',
+    summary: 'منصة لعرض المنتجات الصناعية والحلول التقنية للمصانع.',
+    stack: 'React · Tailwind CSS',
+    year: '2024 — 2025',
+    link: 'https://Almasa.com.sa',
+    cta: 'زيارة الموقع',
+    hidden: true,
+  },
+  {
+    category: 'website',
+    image: '/website/2.webp',
+    code: 'BestBus_Transport',
+    title: 'شركة بيست باص للتنقلات',
+    summary: 'نظام حجز وإدارة رحلات النقل الجماعي والخاص.',
+    stack: 'React · Tailwind CSS',
+    year: '2024 — 2025',
+    link: 'https://BestBusTransport.com',
+    cta: 'زيارة الموقع',
+    hidden: true,
+  },
+  {
+    category: 'website',
+    image: '/website/13.webp',
+    code: 'Elwessam_Limo',
+    title: 'شركة الوسام ليموزين',
+    summary: 'خدمات نقل فاخرة وليموزين عالية الجودة.',
+    stack: 'React · Tailwind CSS',
+    year: '2024 — 2025',
+    link: 'https://El-Wessam.com',
+    cta: 'زيارة الموقع',
+  },
+  // ── Android Apps ──
+  {
+    category: 'android_app',
     image: '/androin/oc.png',
+    code: 'Momtn_Social',
+    title: 'تطبيق مومنت للتواصل الاجتماعي',
+    summary: 'تطبيق تواصل اجتماعي منشور على متجر جوجل بلاي.',
+    stack: 'React Native · Firebase',
+    year: '2023 — 2024',
     link: 'https://Momtn.vercel.app/',
-    displayUrl: 'Momtn.vercel.app',
-    description: 'تطبيق تواصل إجتماعي'
+    cta: 'فتح التطبيق',
   },
   {
-    id: 102,
-    title: 'تطبيق تاجر أونلاين',
-    category: 'apps',
-    categoryName: 'تطبيقات الأندرويد',
+    category: 'android_app',
     image: '/androin/momtn.png',
-    link: 'https://play.google.com/store/apps/details?id=com.tagronline.app',
-    displayUrl: 'تطبيق للتجارة الإلكترونية',
-    description: 'تطبيق التجارة الإلكترونية'
+    code: 'Tagr_App',
+    title: 'تطبيق تاجر أونلاين للأندرويد',
+    summary: 'تجربة التجارة الإلكترونية كتطبيق محمول على جوجل بلاي.',
+    stack: 'Flutter · Google Play',
+    year: '2023 — 2024',
+    link: 'https://Tagr-Online.com',
+    cta: 'فتح التطبيق',
   },
-  // Automation
+  // ── Automation ──
   {
-    id: 301,
-    title: 'وكيل الرد على العملاء (Ai Chat Agent)',
     category: 'automation',
-    categoryName: 'الأتمتة',
     image: '/Ai/1.png',
-    link: '#',
-    displayUrl: 'شركة سمارت تيم لحلول المنازل الذكية',
-    description: 'شركة سمارت تيم لحلول المنازل الذكية'
+    code: 'AI_Chat_Agent',
+    title: 'وكيل الرد على العملاء (AI Chat Agent)',
+    summary: 'وكيل ذكاء اصطناعي يرد على العملاء تلقائيًا.',
+    stack: 'AI · أتمتة',
+    year: '2025',
   },
   {
-    id: 302,
-    title: 'برنامج التحدث مع ملفات البيانات (ChatWithData)',
     category: 'automation',
-    categoryName: 'الأتمتة',
     image: '/Ai/2.png',
-    link: '#',
-    displayUrl: 'جمعية رسالة للأعمال الخيرية',
-    description: 'جمعية رسالة للأعمال الخيرية'
-  }
+    code: 'ChatWithData',
+    title: 'التحدث مع ملفات البيانات',
+    summary: 'تحدث مع بياناتك — أداة محادثة بالذكاء الاصطناعي.',
+    stack: 'AI · أتمتة',
+    year: '2025',
+  },
 ];
 
-const achievements = [
-  { icon: Rocket, value: '+100', label: 'مشروع منجز' },
-  { icon: Users, value: '+100', label: 'عميل' },
-  { icon: Clock, value: '5+', label: 'سنوات خبرة' },
-  { icon: Shield, value: '100%', label: 'التزام بالجودة' },
-];
-
-export function PortfolioSection() {
-  const [activeTab, setActiveTab] = useState('web');
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const [progress, setProgress] = useState(0);
-
-  // تطوير الويب يأخذ ضعف الوقت (16 ثانية) والباقي 8 ثوان
-  const getAutoplayDuration = (tabId: string) => {
-    return tabId === 'web' ? 16000 : 8000;
-  };
-
-  const handleNextTab = useCallback(() => {
-    const currentIndex = categories.findIndex(cat => cat.id === activeTab);
-    const nextIndex = (currentIndex + 1) % categories.length;
-    setActiveTab(categories[nextIndex].id);
-    setProgress(0);
-  }, [activeTab]);
+/* ── Scroll-triggered reveal hook (mirrors personal site's useInView) ── */
+function useInView(rootMargin = '0px 0px -12% 0px') {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(false);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    let progressInterval: NodeJS.Timeout;
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setShown(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [rootMargin]);
 
-    if (!isPaused) {
-      const currentDuration = getAutoplayDuration(activeTab);
-      const PROGRESS_STEP = 100 / (currentDuration / 100);
+  return { ref, shown };
+}
 
-      progressInterval = setInterval(() => {
-        setProgress(prev => {
-          if (prev >= 100) return 0;
-          return prev + PROGRESS_STEP;
-        });
-      }, 100);
+/* ── Reveal wrapper (mirrors personal site's Reveal component) ── */
+function Reveal({
+  children,
+  delay = 0,
+  className,
+  variant = 'up',
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+  variant?: 'up' | 'clip' | 'fade';
+}) {
+  const { ref, shown } = useInView();
 
-      interval = setInterval(() => {
-        handleNextTab();
-      }, currentDuration);
-    }
-
-    return () => {
-      clearInterval(interval);
-      clearInterval(progressInterval);
-    };
-  }, [isPaused, handleNextTab, activeTab]);
-
-  const filteredProjects = projects.filter(p => p.category === activeTab);
+  const variantClass: Record<string, string> = {
+    up: 'reveal-up',
+    clip: 'reveal-clip',
+    fade: 'reveal-fade',
+  };
 
   return (
-    <section
-      id="portfolio"
-      className="pt-12 lg:pt-16 pb-24 lg:pb-32 relative overflow-hidden bg-white"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+    <div
+      ref={ref}
+      data-shown={shown ? 'true' : 'false'}
+      style={shown ? { animationDelay: `${delay}ms` } : undefined}
+      className={`${shown ? variantClass[variant] : 'opacity-0'} ${className ?? ''}`}
     >
-      {/* Background Decorations */}
+      {children}
+    </div>
+  );
+}
+
+/* ── Section Label (mirrors personal site's SectionLabel) ── */
+function SectionLabel({
+  children,
+  icon: Icon,
+}: {
+  children: React.ReactNode;
+  icon?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+}) {
+  const { ref, shown } = useInView();
+  const raw = typeof children === 'string' ? children : '';
+  const [index, ...rest] = raw.split('/');
+  const title = rest.length > 0 ? rest.join('/').trim() : raw;
+  const number = rest.length > 0 ? index?.trim() : null;
+
+  return (
+    <h2
+      ref={ref}
+      data-shown={shown ? 'true' : 'false'}
+      className="flex flex-wrap items-center gap-x-4 gap-y-2"
+    >
+      {Icon ? (
+        <span
+          className="grid size-10 shrink-0 place-items-center rounded-lg"
+          style={{
+            backgroundColor: `${colors.primary}15`,
+            border: `1px solid ${colors.primary}30`,
+          }}
+        >
+          <Icon className="size-5" strokeWidth={1.75} style={{ color: colors.primary }} />
+        </span>
+      ) : null}
+      <span className="text-3xl sm:text-4xl leading-none font-bold tracking-tight font-headline" style={{ color: colors.dark }}>
+        <span className={shown ? 'reveal-clip inline-block' : 'opacity-0'}>{title}</span>
+      </span>
+      {number ? (
+        <span
+          className={`font-mono text-xs uppercase tracking-[0.2em] ${shown ? 'reveal-fade' : 'opacity-0'}`}
+          style={{ color: colors.primary, animationDelay: '140ms' }}
+        >
+          / {number}
+        </span>
+      ) : null}
+    </h2>
+  );
+}
+
+export function PortfolioSection() {
+  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({});
+
+  const toggleGroup = (groupValue: string) => {
+    setExpandedGroups((prev) => ({ ...prev, [groupValue]: !prev[groupValue] }));
+  };
+
+  const groups = CATEGORY_GROUPS.map((group) => ({
+    ...group,
+    items: PROJECTS.filter((project) => project.category === group.value),
+  })).filter((group) => group.items.length > 0);
+
+  return (
+    <section id="portfolio" className="pt-12 lg:pt-16 pb-24 lg:pb-32 relative overflow-hidden bg-white">
+      {/* Background dot pattern */}
       <div
         className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(${colors.primary} 1px, transparent 1px)`,
-          backgroundSize: '30px 30px'
+          backgroundSize: '30px 30px',
         }}
       />
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* ── Section Header ── */}
         <FadeIn>
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full mb-6"
+            <div
+              className="inline-flex items-center gap-3 px-6 py-2 rounded-full mb-6"
               style={{
                 background: `${colors.secondary}20`,
-                border: `1px solid ${colors.primary}30`
+                border: `1px solid ${colors.primary}30`,
               }}
             >
               <span className="font-bold text-sm" style={{ color: colors.primary }}>
                 سابقة أعمالنا
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: colors.dark }}>
+            <h2 className="text-4xl md:text-5xl font-black mb-6 font-headline" style={{ color: colors.dark }}>
               مشاريع نفخر بـ
-              <span className="text-primary mx-2" style={{ color: colors.primary }}>إنجازها</span>
+              <span className="mx-2" style={{ color: colors.primary }}>إنجازها</span>
             </h2>
           </div>
         </FadeIn>
 
-        {/* Tabs Selection */}
-        <div className="flex flex-wrap justify-center gap-1.5 md:gap-3 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => {
-                setActiveTab(cat.id);
-                setProgress(0);
-              }}
-              className={`group relative flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl font-bold text-[13px] md:text-base transition-all duration-300 ${activeTab === cat.id
-                  ? 'bg-[#234338] text-white shadow-lg scale-105'
-                  : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
-                }`}
-            >
-              <cat.icon className={`w-3.5 h-3.5 md:w-5 md:h-5 transition-colors ${activeTab === cat.id ? 'text-[#d9f2a6]' : 'text-gray-400'}`} />
-              <span className="relative z-10">{cat.name}</span>
+        {/* ── Category Groups ── */}
+        <div className="space-y-16 mt-12">
+          {groups.map((group, groupIndex) => {
+            const Icon = group.icon;
+            const hiddenItems = group.items.filter((item) => item.hidden);
+            const visibleItems = group.items.filter((item) => !item.hidden);
+            const isExpanded = expandedGroups[group.value] ?? false;
+            const hasHidden = hiddenItems.length > 0;
 
-              {/* Progress Indicator for Active Tab */}
-              {activeTab === cat.id && (
-                <div className="absolute bottom-0 left-0 h-1 bg-[#d9f2a6]/30 w-full rounded-b-xl md:rounded-b-2xl overflow-hidden">
-                  <div
-                    className="h-full bg-[#d9f2a6] transition-all duration-100 ease-linear"
-                    style={{ width: `${progress}%` }}
-                  />
-                </div>
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 min-h-[400px]">
-          {filteredProjects.map((project, index) => (
-            <FadeIn key={`${activeTab}-${project.id}`} delay={index * 0.1}>
+            return (
               <div
-                className="group relative rounded-xl md:rounded-3xl overflow-hidden bg-white shadow-lg md:shadow-xl transition-all duration-500 hover:-translate-y-2"
-                onMouseEnter={() => setHoveredIndex(project.id)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                style={{ border: `1px solid ${colors.primary}10` }}
+                key={group.value}
+                className={groupIndex === 0 ? 'space-y-6' : 'space-y-6 border-t pt-10'}
+                style={{ borderColor: `${colors.primary}15` }}
               >
-                {/* Project Image */}
-                <div className="relative aspect-[1720/1080] overflow-hidden group/img">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-
-                  {/* Overlay - Hidden on mobile for better UX */}
-                  {/* Removed overlay buttons */}
-                </div>
-
-                {/* Website URL Bar - Adjusted for mobile grid */}
-                <div className="relative group/url">
-                  <div className="absolute inset-0 bg-[#f8fafc] transition-colors duration-500 group-hover:bg-[#60b093]/5" />
-
-                  <div className="relative py-1.5 md:py-2.5 px-3 md:px-6 flex items-center border-y border-gray-100 transition-all duration-500 group-hover:border-[#60b093]/20">
-                    <div className="flex items-center gap-2 md:gap-4 w-full">
-                      <div className="relative shrink-0">
-                        <div className="absolute inset-0 bg-[#60b093] blur-md opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-                        <div className="relative p-1 md:p-1.5 rounded-md md:rounded-lg bg-white shadow-sm border border-gray-100 transition-all duration-500 group-hover:border-[#60b093]/30 group-hover:scale-110">
-                          {activeTab === 'apps' ? 
-                            <Smartphone className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#60b093]" /> :
-                            activeTab === 'ecommerce' ? 
-                            <ShoppingCart className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#60b093]" /> :
-                            activeTab === 'automation' ? 
-                            <Bot className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#60b093]" /> :
-                            <Globe className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#60b093]" />
-                          }
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col overflow-hidden">
-                        <span className="text-[#234338] text-[10px] md:text-base font-black tracking-wide truncate group-hover:text-[#60b093] transition-colors duration-300">
-                          {project.displayUrl}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-[#60b093] to-[#d9f2a6] transition-all duration-700 group-hover:w-full shadow-[0_0_10px_rgba(96,176,147,0.5)]" />
-                </div>
-
-                {/* Project Info - Optimized for mobile grid */}
-                <div className="p-3 md:p-5 flex flex-col">
-                  <h3 className="text-[10px] md:text-xl font-bold mb-2 md:mb-4 group-hover:text-primary transition-colors line-clamp-1" style={{ color: colors.dark }}>
-                    {project.title}
-                  </h3>
-
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/btn relative inline-flex items-center justify-center w-full px-3 md:px-8 py-2 md:py-4 font-bold text-white transition-all duration-500 rounded-lg md:rounded-2xl overflow-hidden shadow-md md:shadow-[0_10px_30px_rgba(96,176,147,0.25)] hover:-translate-y-1"
+                {/* Category Header */}
+                <Reveal variant="clip" className="flex items-center gap-3">
+                  <span
+                    className="grid size-10 shrink-0 place-items-center rounded-lg"
+                    style={{
+                      backgroundColor: `${colors.primary}10`,
+                      border: `1px solid ${colors.primary}25`,
+                    }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#60b093] to-[#234338]" />
+                    <Icon className="size-5" strokeWidth={1.75} style={{ color: colors.primary }} />
+                  </span>
+                  <h3
+                    className="text-2xl font-bold tracking-tight font-headline"
+                    style={{ color: colors.dark }}
+                  >
+                    {group.label}
+                  </h3>
+                  <span
+                    className="h-px flex-1 origin-left"
+                    style={{ backgroundColor: `${colors.primary}20` }}
+                    aria-hidden="true"
+                  />
+                  <span className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: `${colors.primary}60` }}>
+                    {String(group.items.length).padStart(2, '0')}
+                  </span>
+                </Reveal>
 
-                    <div className="relative z-10 flex items-center gap-1.5 md:gap-3">
-                      <span className="tracking-wide text-[10px] md:text-lg">{activeTab === 'apps' ? 'عرض التطبيق' : 'عرض الموقع'}</span>
-                      <ExternalLink className="w-3 h-3 md:w-5 md:h-5" />
-                    </div>
-                  </a>
+                {/* Projects List */}
+                <div className="space-y-12">
+                  {visibleItems.map((project, i) => (
+                    <Reveal key={project.title} delay={i * 70} className="group space-y-4">
+                      {/* Project Image */}
+                      {project.image ? (
+                        <div
+                          className="relative overflow-hidden rounded-xl transition-transform duration-500 group-hover:-translate-y-0.5"
+                          style={{
+                            border: `1px solid ${colors.primary}10`,
+                            backgroundColor: '#f8fafc',
+                          }}
+                        >
+                          <img
+                            src={project.image}
+                            alt={`${project.title} interface preview`}
+                            width={1200}
+                            height={800}
+                            loading="lazy"
+                            className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                            style={{ maxHeight: '500px' }}
+                          />
+                        </div>
+                      ) : null}
+
+                      {/* Link Badge */}
+                      {project.link ? (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex w-fit items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-bold ring-1 transition-colors duration-200"
+                          style={{
+                            color: colors.primary,
+                            borderColor: `${colors.primary}30`,
+                          }}
+                        >
+                          {project.link.replace(/^https?:\/\//, '')}
+                          <ExternalLink className="size-3 shrink-0" />
+                        </a>
+                      ) : null}
+
+                      {/* Project Info */}
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="space-y-1">
+                          <p
+                            className="font-mono text-xs uppercase tracking-[0.2em]"
+                            style={{ color: `${colors.primary}80` }}
+                          >
+                            {project.code}
+                          </p>
+                          <h4 className="text-lg font-bold font-headline" style={{ color: colors.dark }}>
+                            {project.title}
+                          </h4>
+                          {project.summary ? (
+                            <p className="text-sm" style={{ color: '#6b7280' }}>
+                              {project.summary}
+                            </p>
+                          ) : null}
+                          {project.stack ? (
+                            <p className="font-mono text-xs pt-1 font-bold" style={{ color: colors.primary }}>
+                              {project.stack}
+                            </p>
+                          ) : null}
+                        </div>
+                        {project.year ? (
+                          <span
+                            className="shrink-0 rounded-lg px-3 py-1.5 font-mono text-xs uppercase tracking-[0.1em]"
+                            style={{
+                              color: '#6b7280',
+                              border: `1px solid ${colors.primary}15`,
+                            }}
+                          >
+                            {project.year}
+                          </span>
+                        ) : null}
+                      </div>
+
+                      {/* CTA Button */}
+                      {project.link ? (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                          style={{
+                            background: `linear-gradient(135deg, ${colors.primary}, ${colors.dark})`,
+                            boxShadow: `0 4px 15px ${colors.primary}25`,
+                          }}
+                        >
+                          {project.cta ?? 'زيارة الموقع'}
+                          <ExternalLink className="size-3.5 shrink-0" />
+                        </a>
+                      ) : null}
+                    </Reveal>
+                  ))}
+
+                  {/* Show More Button */}
+                  {hasHidden && (
+                    <button
+                      onClick={() => toggleGroup(group.value)}
+                      className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-bold transition-all duration-200"
+                      style={{
+                        border: `2px dashed ${colors.primary}30`,
+                        color: `${colors.primary}90`,
+                      }}
+                    >
+                      {isExpanded ? 'عرض أقل' : `عرض المزيد (${hiddenItems.length})`}
+                      <ChevronDown
+                        className={`size-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                  )}
+
+                  {/* Hidden Projects (expanded) */}
+                  {(isExpanded ? hiddenItems : []).map((project, i) => (
+                    <Reveal key={project.title} delay={i * 70} className="group space-y-4">
+                      {project.image ? (
+                        <div
+                          className="relative overflow-hidden rounded-xl transition-transform duration-500 group-hover:-translate-y-0.5"
+                          style={{
+                            border: `1px solid ${colors.primary}10`,
+                            backgroundColor: '#f8fafc',
+                          }}
+                        >
+                          <img
+                            src={project.image}
+                            alt={`${project.title} interface preview`}
+                            width={1200}
+                            height={800}
+                            loading="lazy"
+                            className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                            style={{ maxHeight: '500px' }}
+                          />
+                        </div>
+                      ) : null}
+                      {project.link ? (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex w-fit items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-bold ring-1 transition-colors duration-200"
+                          style={{
+                            color: colors.primary,
+                            borderColor: `${colors.primary}30`,
+                          }}
+                        >
+                          {project.link.replace(/^https?:\/\//, '')}
+                          <ExternalLink className="size-3 shrink-0" />
+                        </a>
+                      ) : null}
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="space-y-1">
+                          <p
+                            className="font-mono text-xs uppercase tracking-[0.2em]"
+                            style={{ color: `${colors.primary}80` }}
+                          >
+                            {project.code}
+                          </p>
+                          <h4 className="text-lg font-bold font-headline" style={{ color: colors.dark }}>
+                            {project.title}
+                          </h4>
+                          {project.summary ? (
+                            <p className="text-sm" style={{ color: '#6b7280' }}>
+                              {project.summary}
+                            </p>
+                          ) : null}
+                          {project.stack ? (
+                            <p className="font-mono text-xs pt-1 font-bold" style={{ color: colors.primary }}>
+                              {project.stack}
+                            </p>
+                          ) : null}
+                        </div>
+                        {project.year ? (
+                          <span
+                            className="shrink-0 rounded-lg px-3 py-1.5 font-mono text-xs uppercase tracking-[0.1em]"
+                            style={{
+                              color: '#6b7280',
+                              border: `1px solid ${colors.primary}15`,
+                            }}
+                          >
+                            {project.year}
+                          </span>
+                        ) : null}
+                      </div>
+                      {project.link ? (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                          style={{
+                            background: `linear-gradient(135deg, ${colors.primary}, ${colors.dark})`,
+                            boxShadow: `0 4px 15px ${colors.primary}25`,
+                          }}
+                        >
+                          {project.cta ?? 'زيارة الموقع'}
+                          <ExternalLink className="size-3.5 shrink-0" />
+                        </a>
+                      ) : null}
+                    </Reveal>
+                  ))}
                 </div>
-
-                {/* Bottom Gradient Line */}
-                <div
-                  className="absolute bottom-0 left-0 h-1.5 w-0 group-hover:w-full transition-all duration-500"
-                  style={{ background: `linear-gradient(to right, ${colors.primary}, ${colors.secondary})` }}
-                />
               </div>
-            </FadeIn>
-          ))}
+            );
+          })}
         </div>
-
-        {/* === Achievements Grid - Positioned Below Projects === */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto">
-          {achievements.map((item, index) => (
-            <FadeIn key={index} delay={index * 0.1}>
-              <div
-                className="group p-6 md:p-8 rounded-[2rem] bg-white border border-[#234338]/5 shadow-sm hover:shadow-xl hover:shadow-[#60b093]/10 hover:-translate-y-2 transition-all duration-500 text-center relative overflow-hidden"
-              >
-                {/* Background Decoration */}
-                <div className="absolute -top-10 -right-10 w-24 h-24 bg-[#60b093]/5 rounded-full blur-2xl group-hover:bg-[#60b093]/10 transition-colors" />
-
-                <div className="relative z-10">
-                  <div className="inline-flex p-3 md:p-4 rounded-2xl bg-[#234338]/5 text-[#60b093] mb-4 group-hover:scale-110 group-hover:bg-[#234338] group-hover:text-white transition-all duration-500">
-                    <item.icon className="w-6 h-6 md:w-8 md:h-8" />
-                  </div>
-                  <div className="text-3xl md:text-4xl font-black text-[#234338] mb-1 md:mb-2 group-hover:scale-110 transition-transform duration-500">
-                    {item.value}
-                  </div>
-                  <div className="text-gray-500 font-bold text-sm md:text-base group-hover:text-[#60b093] transition-colors">
-                    {item.label}
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-
       </div>
     </section>
   );
