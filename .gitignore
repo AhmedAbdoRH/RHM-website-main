@@ -47,3 +47,12 @@ firestore-debug.log
 
 # Local Netlify folder
 .netlify
+
+# Build artifacts
+.open-next/
+.open-next/
+.wrangler/
+.freebuff/
+.dev.log
+open-next.config.ts
+wrangler.jsonc
