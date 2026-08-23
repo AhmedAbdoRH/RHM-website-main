@@ -11,7 +11,7 @@
 	"services": [
 		{
 			"binding": "WORKER_SELF_REFERENCE",
-			"service": "nextn"
+			"service": "rhm-website"
 		}
 	]
 }
