@@ -128,17 +128,6 @@ const PROJECTS: {
   // ── Websites ──
   {
     category: 'website',
-    image: '/website/15.webp',
-    code: 'Infix_Sport',
-    title: 'إنفكس سبورت للأنظمة الرياضية',
-    summary: 'منصة لأنظمة الأرضيات الرياضية والحلول الرياضية.',
-    stack: 'Next.js · Tailwind CSS',
-    year: '2025',
-    link: 'https://infixsport.com',
-    cta: 'زيارة الموقع',
-  },
-  {
-    category: 'website',
     image: '/website/1.webp',
     code: 'Kafou_Edu_Platform',
     title: 'منصة أنا كفو التعليمية',
@@ -146,6 +135,17 @@ const PROJECTS: {
     stack: 'React · Tailwind CSS',
     year: '2024 — 2025',
     link: 'https://Ana-Kafou.com',
+    cta: 'زيارة الموقع',
+  },
+  {
+    category: 'website',
+    image: '/website/15.webp',
+    code: 'Infix_Sport',
+    title: 'إنفكس سبورت للأنظمة الرياضية',
+    summary: 'منصة لأنظمة الأرضيات الرياضية والحلول الرياضية.',
+    stack: 'Next.js · Tailwind CSS',
+    year: '2025',
+    link: 'https://infixsport.com',
     cta: 'زيارة الموقع',
   },
   {

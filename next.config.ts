@@ -1,6 +1,9 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
+  // Allows running a second dev server in parallel without fighting over .next
+  // e.g. DEV_DIST_DIR=.next-dev2 next dev -p 9003
+  distDir: process.env.DEV_DIST_DIR || '.next',
   output: 'standalone',
   typescript: {
     ignoreBuildErrors: true,
@@ -37,7 +40,12 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
   },
-  turbopack: {},
+  turbopack: {
+    // Pin the workspace root to this project. Without it Next may infer a
+    // parent directory that also contains a lockfile (e.g. C:\Users\<user>),
+    // which breaks file watching and Fast Refresh/HMR module resolution.
+    root: process.cwd(),
+  },
   headers: async () => [
     {
       source: '/(.*)',
