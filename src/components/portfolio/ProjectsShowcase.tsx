@@ -109,7 +109,7 @@ const PROJECTS: ProjectItem[] = [
     category: 'website',
     image: '/website/8.webp',
     code: 'Firefly_Agency',
-    title: 'موقع وكالة فاير فلاي التسويقية',
+    title: 'وكالة فاير فلاي التسويقية',
     link: 'https://Firefly-Agency.com',
     cta: 'زيارة الموقع',
   },
@@ -125,7 +125,7 @@ const PROJECTS: ProjectItem[] = [
     category: 'website',
     image: '/website/cairo-hospital-abuja.webp',
     code: 'Cairo_Hospital_Abuja',
-    title: 'مستشفى القاهرة - نيجيريا',
+    title: 'مستشفى القاهرة',
     link: 'https://egyptian-hospital.rehlathadaf.workers.dev/',
     cta: 'زيارة الموقع',
   },
@@ -133,7 +133,7 @@ const PROJECTS: ProjectItem[] = [
     category: 'website',
     image: '/website/7.webp',
     code: 'Pova_Agency',
-    title: 'موقع وكالة بوفا التسويقية',
+    title: 'وكالة بوفا التسويقية',
     link: 'https://PovaAgency.com',
     cta: 'زيارة الموقع',
   },
@@ -449,12 +449,12 @@ export function ProjectsShowcase({ showHeader = true }: { showHeader?: boolean }
         )}
 
         {/* Interactive Category Filter Tabs */}
-        <div className="mb-12 flex flex-wrap items-center justify-center gap-2">
-          <div className="inline-flex flex-wrap items-center justify-center gap-1.5 rounded-xl border border-[#234338]/10 bg-white p-1.5 shadow-sm">
+        <div className="mb-8 flex items-center justify-center">
+          <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-1 rounded-lg border border-[#234338]/10 bg-white p-1 shadow-sm">
             <button
               type="button"
               onClick={() => setActiveFilter('all')}
-              className={`min-h-[38px] whitespace-nowrap rounded-lg px-4 py-2 text-sm font-bold transition-colors duration-200 ${
+              className={`inline-flex h-8 items-center justify-center whitespace-nowrap rounded-md px-3 text-xs font-bold transition-colors duration-200 ${
                 activeFilter === 'all'
                   ? 'bg-[#234338] text-white'
                   : 'text-[#234338]/70 hover:bg-[#f1f6f3] hover:text-[#234338]'
@@ -470,13 +470,13 @@ export function ProjectsShowcase({ showHeader = true }: { showHeader?: boolean }
                   key={group.value}
                   type="button"
                   onClick={() => setActiveFilter(group.value)}
-                  className={`inline-flex min-h-[38px] shrink-0 items-center gap-2 whitespace-nowrap rounded-lg px-4 py-2 text-sm font-bold transition-colors duration-200 ${
+                  className={`inline-flex h-8 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2.5 text-xs font-bold transition-colors duration-200 sm:px-3 ${
                     isSelected
                       ? 'bg-[#234338] text-white'
                       : 'text-[#234338]/70 hover:bg-[#f1f6f3] hover:text-[#234338]'
                   }`}
                 >
-                  <Icon className="size-4 shrink-0" strokeWidth={1.75} />
+                  <Icon className="size-3.5 shrink-0" strokeWidth={1.75} />
                   <span>{group.label}</span>
                 </button>
               );
@@ -541,17 +541,17 @@ export function ProjectsShowcase({ showHeader = true }: { showHeader?: boolean }
 
                 {/* Expand / Collapse Hidden Items */}
                 {hasHidden && (
-                  <div className="flex justify-center pt-2">
+                  <div className="flex justify-center pt-1">
                     <button
                       type="button"
                       onClick={() => toggleGroup(group.value)}
-                      className="inline-flex min-h-[44px] items-center gap-2 whitespace-nowrap rounded-xl border border-[#234338]/15 bg-white px-6 py-2.5 text-sm font-bold text-[#234338] shadow-sm transition-all duration-200 hover:border-[#60b093] hover:text-[#60b093]"
+                      className="inline-flex h-9 items-center gap-1.5 whitespace-nowrap rounded-lg border border-[#234338]/15 bg-white px-4 text-xs font-bold text-[#234338] shadow-sm transition-all duration-200 hover:border-[#60b093] hover:text-[#60b093]"
                     >
                       <span>
                         {isExpanded ? 'عرض أقل' : `عرض المزيد (${hiddenItems.length})`}
                       </span>
                       <ChevronDown
-                        className={`size-4 transition-transform duration-200 ${
+                        className={`size-3.5 transition-transform duration-200 ${
                           isExpanded ? 'rotate-180' : ''
                         }`}
                       />

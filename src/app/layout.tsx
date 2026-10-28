@@ -6,8 +6,22 @@ import { WhatsAppButton } from '@/components/layout/FloatingWhatsApp';
 import { Toaster } from '@/components/ui/toaster';
 import { PerformanceMonitor } from '@/components/ui/performance-monitor';
 
+const SITE_URL = (() => {
+  const envUrl = process.env.APP_URL;
+  if (envUrl) {
+    try {
+      return new URL(envUrl);
+    } catch {
+      // fall through
+    }
+  }
+  return new URL('https://rhm-digital.com');
+})();
+
+const OG_IMAGE_PATH = '/assets/aistudio/RH_PRODUCTION_-_________8__1a801310.png';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rhm-digital.com'),
+  metadataBase: SITE_URL,
   title: 'RHM | RHM Digital Solutions',
   description: 'نُحوّل أفكارك إلى حلول رقمية متكاملة: تطوير مواقع ومتاجر إلكترونية، تطبيقات أندرويد، أنظمة داخلية/ERP، وأتمتة وذكاء اصطناعي—لنقل عملك لمستوى احترافي.',
   icons: {
@@ -18,23 +32,25 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'RHM | RHM Digital Solutions',
     description: 'حلول رقمية متكاملة لنمو أعمالك: مواقع ومتاجر إلكترونية، تطبيقات أندرويد، أنظمة داخلية/ERP، وأتمتة وذكاء اصطناعي. تواصل معنا وابدأ رحلتك الآن.',
+    url: '/',
     images: [
       {
-        url: 'https://rhm-digital.com/logo2.png',
-        width: 1200,
-        height: 630,
-        alt: 'RHM Digital Solutions',
+        url: OG_IMAGE_PATH,
+        width: 640,
+        height: 640,
+        alt: 'RHM Digital Solutions - رحلة هدف للحلول الرقمية',
+        type: 'image/png',
       },
     ],
     type: 'website',
-    locale: 'en_US',
+    locale: 'ar_EG',
     siteName: 'RHM Digital Solutions',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'RHM | RHM Digital Solutions',
     description: 'شريكك الرقمي: تطوير مواقع ومتاجر، تطبيقات أندرويد، أنظمة داخلية/ERP، وأتمتة وذكاء اصطناعي. اطلب استشارة وابدأ الآن.',
-    images: ['https://rhm-digital.com/logo2.png'],
+    images: [OG_IMAGE_PATH],
     creator: '@RHM',
     site: '@RHM',
   },
@@ -84,18 +100,6 @@ export default function RootLayout({
         <link rel="icon" href="/logo.png" sizes="32x32" />
         <link rel="icon" href="/logo.png" sizes="16x16" />
         <link rel="apple-touch-icon" href="/logo.png" sizes="180x180" />
-        
-        {/* Open Graph Image - explicit for WhatsApp */}
-        <meta property="og:image" content="https://rhm-digital.com/logo2.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="RHM Digital Solutions" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:url" content="https://rhm-digital.com" />
-        <meta property="fb:app_id" content="your-facebook-app-id" />
-        
-        {/* Twitter Card Image */}
-        <meta name="twitter:image" content="https://rhm-digital.com/logo2.png" />
         
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
