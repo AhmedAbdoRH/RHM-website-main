@@ -152,7 +152,7 @@ const PROJECTS: {
     category: 'website',
     image: '/website/cairo-hospital-abuja.webp',
     code: 'Cairo_Hospital_Abuja',
-    title: 'مستشفى القاهرة ومركز إعادة التأهيل',
+    title: 'مستشفى القاهرة - نيجيريا',
     summary: 'موقع تعريفي لمستشفى القاهرة ومركز إعادة التأهيل في أبوجا، نيجيريا.',
     stack: 'React · Tailwind CSS',
     year: '2026',
