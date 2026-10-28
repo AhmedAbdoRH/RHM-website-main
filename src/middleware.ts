@@ -9,8 +9,8 @@ export function middleware(request: NextRequest) {
   response.headers.set('Referrer-Policy', 'origin-when-cross-origin');
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
 
-  // Purge any previously poisoned immutable dev chunk cache once per browser session
-  if (!request.cookies.get('rhm_cache_v5')) {
+  // Purge any previously poisoned immutable dev chunk cache once per browser session in dev
+  if (process.env.NODE_ENV === 'development' && !request.cookies.get('rhm_cache_v5')) {
     response.headers.set('Clear-Site-Data', '"cache"');
     response.cookies.set('rhm_cache_v5', '1', {
       path: '/',

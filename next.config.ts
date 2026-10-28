@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   // Allows running a second dev server in parallel without fighting over .next
   // e.g. DEV_DIST_DIR=.next-dev2 next dev -p 9003
   distDir: process.env.DEV_DIST_DIR || '.next',
-  deploymentId: 'rhm-v2',
+  ...(process.env.NODE_ENV === 'development' ? { deploymentId: 'rhm-v2' } : {}),
   output: 'standalone',
   allowedDevOrigins: [
     '**.run.app',
