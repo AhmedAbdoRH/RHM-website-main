@@ -1,5 +1,5 @@
 import { ServicesSection } from '@/components/home/ServicesSection';
-import { PortfolioSection } from '@/components/home/PortfolioSection';
+import { ProjectsShowcase } from '@/components/portfolio/ProjectsShowcase';
 import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { PartnersSection } from '@/components/home/PartnersSection';
 import { CTASection } from '@/components/home/CTASection';
@@ -12,7 +12,7 @@ export default function Home() {
 
       <ServicesSection />
 
-      <PortfolioSection />
+      <ProjectsShowcase />
 
       <TestimonialsSection />
 

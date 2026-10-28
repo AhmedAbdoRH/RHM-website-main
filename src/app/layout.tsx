@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import './theme.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { WhatsAppButton } from '@/components/layout/WhatsAppButton';
+import { WhatsAppButton } from '@/components/layout/FloatingWhatsApp';
 import { Toaster } from '@/components/ui/toaster';
 import { PerformanceMonitor } from '@/components/ui/performance-monitor';
 
@@ -99,9 +99,6 @@ export default function RootLayout({
         
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
-        
-        {/* Performance hints */}
-        <link rel="modulepreload" href="/_next/static/chunks/main-app.js" />
       </head>
       <body className="font-body antialiased">
         <PerformanceMonitor />

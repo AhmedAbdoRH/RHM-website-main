@@ -5,14 +5,19 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
   // Add security headers
-  response.headers.set('X-Frame-Options', 'DENY');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'origin-when-cross-origin');
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
 
-  // Add cache control for static assets
-  if (request.nextUrl.pathname.startsWith('/_next/static')) {
-    response.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+  // Purge any previously poisoned immutable dev chunk cache once per browser session
+  if (!request.cookies.get('rhm_cache_v5')) {
+    response.headers.set('Clear-Site-Data', '"cache"');
+    response.cookies.set('rhm_cache_v5', '1', {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7,
+      sameSite: 'none',
+      secure: true,
+    });
   }
 
   // Add cache control for images

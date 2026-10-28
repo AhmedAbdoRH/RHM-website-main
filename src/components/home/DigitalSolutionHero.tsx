@@ -97,13 +97,17 @@ const DigitalSolutionHero = () => {
     createParticles();
     drawNetwork();
 
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       resize();
       createParticles();
-    });
+    };
+    window.addEventListener('resize', handleResize);
 
-    return () => cancelAnimationFrame(animationId);
-  }, []);
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [mounted]);
 
   return (
     <section className="relative min-h-screen lg:h-screen flex items-center justify-center overflow-hidden bg-[#0d1712]">

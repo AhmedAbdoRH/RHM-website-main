@@ -4,7 +4,14 @@ const nextConfig: NextConfig = {
   // Allows running a second dev server in parallel without fighting over .next
   // e.g. DEV_DIST_DIR=.next-dev2 next dev -p 9003
   distDir: process.env.DEV_DIST_DIR || '.next',
+  deploymentId: 'rhm-v2',
   output: 'standalone',
+  allowedDevOrigins: [
+    '**.run.app',
+    '*.run.app',
+    '**.google.com',
+    '**.googleusercontent.com',
+  ],
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -51,10 +58,6 @@ const nextConfig: NextConfig = {
       source: '/(.*)',
       headers: [
         {
-          key: 'X-Frame-Options',
-          value: 'DENY',
-        },
-        {
           key: 'X-Content-Type-Options',
           value: 'nosniff',
         },
@@ -69,15 +72,6 @@ const nextConfig: NextConfig = {
       ],
     },
     {
-      source: '/_next/static/(.*)',
-      headers: [
-        {
-          key: 'Cache-Control',
-          value: 'public, max-age=31536000, immutable',
-        },
-      ],
-    },
-    {
       source: '/RHM.jpg',
       headers: [
         {
@@ -87,22 +81,6 @@ const nextConfig: NextConfig = {
       ],
     },
   ],
-  webpack: (config, { dev, isServer }) => {
-    // Tree shaking optimization
-    config.optimization = {
-      ...config.optimization,
-      usedExports: true,
-      sideEffects: false,
-    };
-
-    // SVG optimization
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
-
-    return config;
-  },
 };
 
 export default nextConfig;

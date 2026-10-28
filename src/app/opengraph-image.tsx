@@ -1,7 +1,5 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
-
 export const size = {
   width: 1200,
   height: 630,
@@ -102,11 +100,10 @@ export default async function OpengraphImage() {
                 fontSize: 36,
                 fontWeight: 600,
                 color: '#60b093',
-                direction: 'rtl',
                 lineHeight: 1.25,
               }}
             >
-              نُحوّل الأفكار إلى واقع رقمي
+              Transforming Ideas Into Digital Reality
             </div>
           </div>
         </div>

@@ -3,14 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack -p 9002",
+    "dev": "DEV_DIST_DIR=.next-dev2 next dev -p 3000 -H 0.0.0.0",
     "build": "next build",
-    "build:cf": "opennextjs-cloudflare build",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "start": "next start",
-    "lint": "next lint",
-    "typecheck": "tsc --noEmit",
-    "pages:dev": "wrangler pages dev --port 9003"
+    "start": "next start -p 3000 -H 0.0.0.0",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.3",
@@ -55,14 +52,11 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.20.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "esbuild": "^0.28.2",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5",
-    "wrangler": "^4.123.0"
+    "typescript": "^5"
   }
 }
