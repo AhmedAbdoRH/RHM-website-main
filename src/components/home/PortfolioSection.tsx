@@ -32,6 +32,15 @@ const CATEGORY_GROUPS: {
   { value: 'automation', label: 'الأتمتة', icon: Bot },
 ];
 
+const PROJECT_COUNTRIES: Record<string, { flag: string; label: string }> = {
+  Kafou_Edu_Platform: { flag: '🇸🇦', label: 'السعودية' },
+  Almasa_Industrial: { flag: '🇸🇦', label: 'السعودية' },
+  Cairo_Hospital_Abuja: { flag: '🇳🇬', label: 'نيجيريا' },
+};
+
+const getProjectCountry = (code: string) =>
+  PROJECT_COUNTRIES[code] ?? { flag: '🇪🇬', label: 'مصر' };
+
 const PROJECTS: {
   category: CategoryId;
   image: string;
@@ -511,6 +520,16 @@ export function PortfolioSection() {
                           >
                             {project.code}
                           </p>
+                          <span
+                            className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold"
+                            style={{
+                              color: colors.dark,
+                              backgroundColor: `${colors.primary}12`,
+                              border: `1px solid ${colors.primary}25`,
+                            }}
+                          >
+                            {getProjectCountry(project.code).flag} {getProjectCountry(project.code).label}
+                          </span>
                           <h4 className="text-lg font-bold font-headline" style={{ color: colors.dark }}>
                             {project.title}
                           </h4>
@@ -619,6 +638,16 @@ export function PortfolioSection() {
                           >
                             {project.code}
                           </p>
+                          <span
+                            className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold"
+                            style={{
+                              color: colors.dark,
+                              backgroundColor: `${colors.primary}12`,
+                              border: `1px solid ${colors.primary}25`,
+                            }}
+                          >
+                            {getProjectCountry(project.code).flag} {getProjectCountry(project.code).label}
+                          </span>
                           <h4 className="text-lg font-bold font-headline" style={{ color: colors.dark }}>
                             {project.title}
                           </h4>
