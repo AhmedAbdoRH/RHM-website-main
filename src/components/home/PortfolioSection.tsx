@@ -172,6 +172,17 @@ const PROJECTS: {
   },
   {
     category: 'website',
+    image: '/website/cairo-hospital-abuja.webp',
+    code: 'Cairo_Hospital_Abuja',
+    title: 'مستشفى القاهرة ومركز إعادة التأهيل',
+    summary: 'موقع تعريفي لمستشفى القاهرة ومركز إعادة التأهيل في أبوجا، نيجيريا.',
+    stack: 'React · Tailwind CSS',
+    year: '2026',
+    link: 'https://egyptian-hospital.rehlathadaf.workers.dev/',
+    cta: 'زيارة الموقع',
+  },
+  {
+    category: 'website',
     image: '/website/7.webp',
     code: 'Pova_Agency',
     title: 'موقع وكالة بوفا التسويقية',
