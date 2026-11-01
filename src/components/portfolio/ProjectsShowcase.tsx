@@ -126,7 +126,7 @@ const PROJECTS: ProjectItem[] = [
     image: '/website/cairo-hospital-abuja.webp',
     code: 'Cairo_Hospital_Abuja',
     title: 'مستشفى القاهرة',
-    link: 'https://egyptian-hospital.rehlathadaf.workers.dev/',
+    link: 'https://CairoHospitals.com',
     cta: 'زيارة الموقع',
   },
   {
