@@ -101,7 +101,7 @@ const PROJECTS: ProjectItem[] = [
     image: '/website/4.webp',
     code: 'SmartTeam_Egypt',
     title: 'موكات للمنازل الذكية',
-    link: 'https://SmartTeamEg.com',
+    link: 'https://smartteameg.pages.dev',
     cta: 'زيارة الموقع',
   },
   // ── Websites ──
@@ -185,7 +185,7 @@ const PROJECTS: ProjectItem[] = [
     image: '/androin/oc.png',
     code: 'Momtn_Social',
     title: 'تطبيق مومنت للتواصل الاجتماعي',
-    link: 'https://Momtn.vercel.app/',
+    link: 'https://Momtn.lovable.app',
     cta: 'فتح التطبيق',
   },
   {
